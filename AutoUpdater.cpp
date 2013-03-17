@@ -12,6 +12,7 @@ using namespace std;
 using namespace sf;
 using namespace ssvs;
 using namespace ssvs::Utils;
+using namespace ssvs::UtilsJson;
 using namespace ssvs::FileSystem;
 using namespace ssvau::Utils;
 
@@ -24,39 +25,37 @@ namespace ssvau
 	AutoUpdater::AutoUpdater(const string& mHost, const string& mHostFolder, const string& mLocalFolder) : host{mHost}, hostFolder{mHostFolder}, localFolder{mLocalFolder} { }
 	AutoUpdater::~AutoUpdater() { terminateAll(); }
 
-	void AutoUpdater::run()
+	void AutoUpdater::runGetServerData()
 	{
-		Json::Value updaterConfigRoot, serverFilesRoot;
-		vector<FileData> serverFiles, localFiles;
-		vector<DownloadData> toDownload;
-		vector<string> serverExcludedFiles, serverExcludedFolders;
-
 		// Concurrently starts the threads that get data from the server
 		auto& configRootThread(startGetJsonRoot(updaterConfigRoot, hostConfigFile));
 		auto& serverFilesRootThread(startGetJsonRoot(serverFilesRoot, hostScript));
 
-		// Check if the target local folder exists, otherwise create it
-		if(!exists(localFolder))
-		{
-			log("Local folder does not exist, creating");
-			mkdir(localFolder.c_str());
-		}
-
 		// Wait until server config file has been downloaded, then set values
 		waitFor(configRootThread);
 		serverFolder = getValue<string>(updaterConfigRoot, "dataFolder");
-		serverExcludedFiles = getStringArray(updaterConfigRoot, "excludedFiles");
-		serverExcludedFolders = getStringArray(updaterConfigRoot, "excludedFolders");
+		serverExcludedFiles = getArray<string>(updaterConfigRoot, "excludedFiles");
+		serverExcludedFolders = getArray<string>(updaterConfigRoot, "excludedFolders");
 
+		// Wait until server PHP script finished returning file data, then fill data vectors
+		waitFor(serverFilesRootThread);
+		for(auto& f : serverFilesRoot)
+		{
+			string childPath{replace(getValue<string>(f, "path"), serverFolder, "")};
+			serverFiles.push_back({getValue<string>(f, "md5"), childPath});
+		}
+		for(auto& f : getRecursiveFiles(localFolder))
+		{
+			string childPath{replace(f, localFolder, "")};
+			localFiles.push_back({getMD5Hash(getFileContents(f)), childPath});
+		}
+	}
+	void AutoUpdater::runDisplayData()
+	{
 		// Display what files the server excluded from sending you
 		for(auto& f : serverExcludedFiles) log(f, "ServerExcludedFile");
 		for(auto& f : serverExcludedFolders) log(f, "ServerExcludedFolder");
 
-		// Wait until server PHP script finished returning file data, then fill data vectors
-		waitFor(serverFilesRootThread);
-		for(auto& f : serverFilesRoot) serverFiles.push_back({getValue<string>(f, "md5"), getChild(serverFolder, getValue<string>(f, "path")), getValue<string>(f, "path")});
-		for(auto& f : getRecursiveFiles(localFolder)) localFiles.push_back({getMD5Hash(getFileContents(f)), getChild(localFolder, f), f});
-		
 		// Display server file data
 		for(auto& f : serverFiles) log(f.path + " " + f.md5, "ServerFile");
 		log("");
@@ -64,6 +63,24 @@ namespace ssvau
 		// Display local file data
 		for(auto& f : localFiles) log(f.path + " " + f.md5, "LocalFile");
 		log("");
+	}
+	void AutoUpdater::runDownload()
+	{
+		log("Starting...", "Download");
+		waitFor(startDownload(serverFolder, localFolder, toDownload));
+	}
+
+	void AutoUpdater::run()
+	{
+		runGetServerData();
+		runDisplayData();
+
+		// Check if the target local folder exists, otherwise create it
+		if(!exists(localFolder))
+		{
+			log("Local folder does not exist, creating");
+			mkdir(localFolder.c_str());
+		}
 
 		// For each file data got from the server
 		for(auto& serverFile : serverFiles)
@@ -116,53 +133,22 @@ namespace ssvau
 		log("");
 
 		// Download files that need to be created/updated
-		if(!toDownload.empty()) runDownload(toDownload);
+		if(!toDownload.empty()) runDownload();
 
 		log("Finished");
 	}
-	void AutoUpdater::runDownload(const vector<DownloadData>& mToDownload)
-	{
-		log("Starting...", "Download");
-		ThreadWrapper& startDownloadThread(startDownload(serverFolder, localFolder, mToDownload));
-		waitFor(startDownloadThread);
-	}
 
-	void AutoUpdater::cleanUp() { for(auto& t : memoryManager.getItems()) if(t->getFinished()) memoryManager.del(t); memoryManager.cleanUp(); }
 	void AutoUpdater::terminateAll() { for(auto& t : memoryManager.getItems()) t->terminate(); memoryManager.cleanUp(); }
-	string AutoUpdater::getMD5Hash(const string& mString) { MD5 key{mString}; return key.GetHash(); }
-	Response AutoUpdater::getGetResponse(const string& mRequestFile) { return Http(host).sendRequest({hostFolder + mRequestFile}); }
-	Response AutoUpdater::getPostResponse(const string& mRequestFile, const string& mBody) { return Http(host).sendRequest({hostFolder + mRequestFile, Request::Post, mBody}); }
-	void AutoUpdater::waitFor(ThreadWrapper& mThreadWrapper) { while(!mThreadWrapper.getFinished()) sleep(seconds(1)); }
-	string AutoUpdater::getChild(const string& mFolderName, const string& mPath) { return replace(mPath, mFolderName, ""); }
-	vector<string> AutoUpdater::getFolderNames(const string& mPath)
-	{
-		vector<string> splitted{split(mPath, '/', true)}, result;
-		string& lastSplitted(splitted[splitted.size() - 1]);
-		unsigned int sizeToSearch{splitted.size()};
-		if(lastSplitted[lastSplitted.length() - 1] != '/') --sizeToSearch;
-
-		for(unsigned int i{0}; i < sizeToSearch; ++i)
-		{
-			if(splitted[i] == "/") continue;
-			string toPush{""};
-			for(unsigned int j{0}; j < i; ++j) toPush.append(splitted[j]);
-			toPush.append(splitted[i] + "/");
-			result.push_back(toPush);
-		}
-
-		return result;
-	}
 
 	ThreadWrapper& AutoUpdater::startGetJsonRoot(Json::Value& mTargetRoot, const string& mServerFileName)
 	{
-		ThreadWrapper& thread = memoryManager.create([=, &mTargetRoot]
+		auto& thread = memoryManager.create([=, &mTargetRoot]
 		{
 			log("Getting <" + mServerFileName + "> from server...", "Online");
 
-			Response response{getGetResponse(mServerFileName)};
-			Status status{response.getStatus()};
-
-			if(status == Response::Ok)
+			Response response{getGetResponse(host, hostFolder, mServerFileName)};
+			
+			if(response.getStatus() == Response::Ok)
 			{
 				log("<" + mServerFileName + "> got successfully", "Online");
 				mTargetRoot = getRootFromString(response.getBody());
@@ -177,21 +163,20 @@ namespace ssvau
 
 	ThreadWrapper& AutoUpdater::startGetFileContents(string& mTargetString, const string& mServerFileName)
 	{
-		ThreadWrapper& thread = memoryManager.create([=, &mTargetString]
+		auto& thread = memoryManager.create([=, &mTargetString]
 		{
-			log("Getting <" + mServerFileName + "> from server...", "Online");
+			log("Getting <" + mServerFileName + "> from server...");
 
-			Response response{getGetResponse(mServerFileName)};
-			Status status{response.getStatus()};
+			Response response{getGetResponse(host, hostFolder, mServerFileName)};
 
-			if(status == Response::Ok)
+			if(response.getStatus() == Response::Ok)
 			{
-				log("<" + mServerFileName + "> got successfully", "Online");
+				log("<" + mServerFileName + "> got successfully");
 				mTargetString = response.getBody();
 			}
-			else log("Get <" + mServerFileName + "> error", "Online");
+			else log("Get <" + mServerFileName + "> error");
 
-			log("Finished getting <" + mServerFileName + ">", "Online");
+			log("Finished getting <" + mServerFileName + ">");
 		});
 
 		thread.launch(); return thread;
@@ -199,9 +184,9 @@ namespace ssvau
 
 	ThreadWrapper& AutoUpdater::startGetFile(const string& mServerFolder, const string& mLocalFolder, const DownloadData& mDownloadData)
 	{
-		ThreadWrapper& thread = memoryManager.create([=]
+		auto& thread = memoryManager.create([=]
 		{
-			log("Processing <" + mDownloadData.path + ">", "Online");
+			log("Processing <" + mDownloadData.path + ">");
 
 			if(mDownloadData.existsLocally)
 			{
@@ -221,7 +206,7 @@ namespace ssvau
 			ofs << serverContents;
 			ofs.flush(); ofs.close();
 
-			log("Finished processing <" + mDownloadData.path + ">", "Online");
+			log("Finished processing <" + mDownloadData.path + ">");
 		});
 
 		thread.launch(); return thread;
@@ -229,7 +214,7 @@ namespace ssvau
 
 	ThreadWrapper& AutoUpdater::startDownload(const string& mServerFolder, const string& mLocalFolder, const vector<DownloadData>& mToDownload)
 	{
-		ThreadWrapper& thread = memoryManager.create([=]
+		auto& thread = memoryManager.create([=]
 		{
 			for(auto& td : mToDownload)
 			{

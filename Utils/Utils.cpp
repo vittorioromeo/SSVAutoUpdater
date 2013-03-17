@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <fstream>
 #include "Utils/Utils.h"
+#include "Utils/MD5.h"
 
 using namespace std;
 using namespace sf;
@@ -18,37 +19,24 @@ namespace ssvau
 {
 	namespace Utils
 	{
-		using namespace Json;
-
-		string getFileContents(const string& mPath)
+		string getMD5Hash(const string& mString) { return MD5{mString}.GetHash(); }
+		
+		vector<string> getFolderNames(const string& mPath)
 		{
-			FILE* fptr{fopen(mPath.c_str(), "rb")};
-			fseek(fptr, 0, SEEK_END);
-			size_t fsize(ftell(fptr));
-			fseek(fptr, 0, SEEK_SET);
-			string content; content.resize(fsize);
-			if(fread(const_cast<char*>(content.c_str()), 1, fsize, fptr) != fsize) log("Error: " + mPath, "File loading");
-			fclose(fptr); return content;
-		}
+			vector<string> splitted{split(mPath, '/', true)}, result;
+			string& lastSplitted(splitted[splitted.size() - 1]);
+			unsigned int sizeToSearch{splitted.size()};
+			if(lastSplitted[lastSplitted.length() - 1] != '/') --sizeToSearch;
 
-		template<> int getValue(const Value& mRoot, const string& mValue) 			{ return mRoot[mValue].asInt(); }
-		template<> float getValue(const Value& mRoot, const string& mValue) 		{ return mRoot[mValue].asFloat(); }
-		template<> bool getValue(const Value& mRoot, const string& mValue) 			{ return mRoot[mValue].asBool(); }
-		template<> string getValue(const Value& mRoot, const string& mValue) 		{ return mRoot[mValue].asString(); }
-		template<> char const* getValue(const Value& mRoot, const string& mValue)	{ return mRoot[mValue].asCString(); }
+			for(unsigned int i{0}; i < sizeToSearch; ++i)
+			{
+				if(splitted[i] == "/") continue;
+				string toPush{""};
+				for(unsigned int j{0}; j < i; ++j) toPush.append(splitted[j]);
+				toPush.append(splitted[i] + "/");
+				result.push_back(toPush);
+			}
 
-		Value getRootFromFile(const string& mPath) { return getRootFromString(getFileContents(mPath)); }
-		Value getRootFromString(const string& mString)
-		{
-			Value result; Reader reader;
-			if(!reader.parse(mString, result, false)) log(reader.getFormatedErrorMessages() + "\n" + "From: [" + mString + "]", "JSON Error");
-			return result;
-		}
-
-		vector<string> getStringArray(const Value& mRoot, const string& mValue)
-		{
-			vector<string> result;
-			for(auto& item : mRoot[mValue]) result.push_back(item.asString());
 			return result;
 		}
 	}

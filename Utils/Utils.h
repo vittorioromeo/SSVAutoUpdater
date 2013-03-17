@@ -7,21 +7,16 @@
 
 #include <string>
 #include <sstream>
-#include <unordered_set>
-#include <json/json.h>
-#include <json/reader.h>
+
 #include <SSVStart.h>
+#include <SFML/Network.hpp>
 
 namespace ssvau
 {
 	namespace Utils
 	{
-		std::string getFileContents(const std::string& mPath);
-		template<typename T> T getValue(const Json::Value& mRoot, const std::string& mValue);
-		template<typename T> T getValueOrDefault(const Json::Value& mRoot, const std::string& mValue, T mDefault) { return mRoot.isMember(mValue) ? getValue<T>(mRoot, mValue) : mDefault; }
-		Json::Value getRootFromFile(const std::string& mPath);
-		Json::Value getRootFromString(const std::string& mString);
-		std::vector<std::string> getStringArray(const Json::Value& mRoot, const std::string& mValue);
+		std::string getMD5Hash(const std::string& mString);
+		std::vector<std::string> getFolderNames(const std::string& mPath);
 	}
 }
 
