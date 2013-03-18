@@ -13,6 +13,8 @@
     <File Name="AutoUpdater.h"/>
     <File Name="AutoUpdater.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="">
@@ -65,6 +67,8 @@
         <IncludePath Value="."/>
         <IncludePath Value="../SSVEntitySystem"/>
         <IncludePath Value="../SSVStart"/>
+        <IncludePath Value="../SSVUtils"/>
+        <IncludePath Value="../SSVUtilsJson"/>
         <IncludePath Value="../SSVLuaWrapper"/>
         <IncludePath Value="../SSVMenuSystem"/>
         <IncludePath Value="D:/Vee/Software/GitHub/OHWorkspace/SFML/include"/>
@@ -73,6 +77,8 @@
         <IncludePath Value="D:/Vee/Software/Repos/sparsehash/build/built/include"/>
       </Compiler>
       <Linker Options="-O2" Required="yes">
+        <LibraryPath Value="../SSVUtils/_RELEASE"/>
+        <LibraryPath Value="../SSVUtilsJson/_RELEASE"/>
         <LibraryPath Value="../SSVStart/_RELEASE"/>
         <LibraryPath Value="../SSVEntitySystem/_RELEASE"/>
         <LibraryPath Value="../SSVLuaWrapper/_RELEASE"/>
@@ -85,6 +91,7 @@
         <Library Value="SSVStart"/>
         <Library Value="SSVLuaWrapper"/>
         <Library Value="SSVMenuSystem"/>
+        <Library Value="SSVUtils"/>
         <Library Value="sfml-window"/>
         <Library Value="sfml-graphics"/>
         <Library Value="sfml-system"/>
@@ -93,6 +100,7 @@
         <Library Value="json_mingw_libmt"/>
         <Library Value="lua5.1"/>
         <Library Value="lua51"/>
+        <Library Value="SSVUtilsJson"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="./_RELEASE/$(ProjectName).exe" IntermediateDirectory="./INTERMEDIATE" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./_RELEASE/" PauseExecWhenProcTerminates="yes"/>

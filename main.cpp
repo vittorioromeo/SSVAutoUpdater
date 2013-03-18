@@ -8,5 +8,5 @@ int main()
 {
 	ssvau::AutoUpdater autoUpdater{"http://vittorioromeo.info", "Misc/Linked/OHUpdater/", "../"};
 	autoUpdater.run();
-	ssvs::saveLogToFile("updaterLog.txt");
+	ssvu::saveLogToFile("updaterLog.txt");
 }

@@ -2,8 +2,8 @@
 // License: Academic Free License ("AFL") v. 3.0
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
-#ifndef AUTOUPDATER_MD5
-#define AUTOUPDATER_MD5
+#ifndef SSVAU_MD5
+#define SSVAU_MD5
 
 /* Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. All
 rights reserved.

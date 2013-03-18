@@ -2,18 +2,22 @@
 // License: Academic Free License ("AFL") v. 3.0
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
-#include "AutoUpdater.h"
-#include "Utils/MD5.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <SSVUtilsJson.h>
+#include "AutoUpdater.h"
+#include "Utils/MD5.h"
+#include "Utils/Utils.h"
 
 using namespace std;
 using namespace sf;
 using namespace ssvs;
 using namespace ssvs::Utils;
-using namespace ssvs::UtilsJson;
-using namespace ssvs::FileSystem;
+using namespace ssvu;
+using namespace ssvu::Utils;
+using namespace ssvu::UtilsJson;
+using namespace ssvu::FileSystem;
 using namespace ssvau::Utils;
 
 using Request = Http::Request;

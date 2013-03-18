@@ -2,14 +2,10 @@
 // License: Academic Free License ("AFL") v. 3.0
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
-#ifndef AUTOUPDATER_UTILS
-#define AUTOUPDATER_UTILS
+#ifndef SSVAU_UTILS
+#define SSVAU_UTILS
 
 #include <string>
-#include <sstream>
-
-#include <SSVStart.h>
-#include <SFML/Network.hpp>
 
 namespace ssvau
 {
