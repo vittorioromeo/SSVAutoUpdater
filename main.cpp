@@ -6,7 +6,7 @@
 
 int main()
 {
-	ssvau::AutoUpdater autoUpdater{"http://test.vittorioromeo.info", "Misc/testUpdater/", "LocalData/"};
+	ssvau::AutoUpdater autoUpdater{"http://vittorioromeo.info", "Misc/Linked/OHUpdater/", "../"};
 	autoUpdater.run();
 	ssvs::saveLogToFile("updaterLog.txt");
 }

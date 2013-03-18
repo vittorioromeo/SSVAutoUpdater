@@ -22,7 +22,8 @@ using Status = Http::Response::Status;
 
 namespace ssvau
 {
-	AutoUpdater::AutoUpdater(const string& mHost, const string& mHostFolder, const string& mLocalFolder) : host{mHost}, hostFolder{mHostFolder}, localFolder{mLocalFolder} { }
+	AutoUpdater::AutoUpdater(const string& mHost, const string& mHostFolder, const string& mLocalFolder) : host{mHost}, hostFolder{mHostFolder},
+		localFolder{mLocalFolder}, backupFolder{localFolder + "_BACKUP/"} { }
 	AutoUpdater::~AutoUpdater() { terminateAll(); }
 
 	void AutoUpdater::runGetServerData()
@@ -67,7 +68,7 @@ namespace ssvau
 	void AutoUpdater::runDownload()
 	{
 		log("Starting...", "Download");
-		waitFor(startDownload(serverFolder, localFolder, toDownload));
+		waitFor(startDownload(toDownload));
 	}
 
 	void AutoUpdater::run()
@@ -80,6 +81,12 @@ namespace ssvau
 		{
 			log("Local folder does not exist, creating");
 			mkdir(localFolder.c_str());
+		}
+
+		if(!exists(backupFolder))
+		{
+			log("Backup folder does not exist, creating");
+			mkdir(backupFolder.c_str());
 		}
 
 		// For each file data got from the server
@@ -182,7 +189,7 @@ namespace ssvau
 		thread.launch(); return thread;
 	}
 
-	ThreadWrapper& AutoUpdater::startGetFile(const string& mServerFolder, const string& mLocalFolder, const DownloadData& mDownloadData)
+	ThreadWrapper& AutoUpdater::startGetFile(const DownloadData& mDownloadData)
 	{
 		auto& thread = memoryManager.create([=]
 		{
@@ -191,18 +198,19 @@ namespace ssvau
 			if(mDownloadData.existsLocally)
 			{
 				log("Backing up <" + mDownloadData.path + ">");
-				ofstream ofs{mLocalFolder + mDownloadData.path + ".bak", ofstream::binary};
-				string backupContents{getFileContents(mLocalFolder + mDownloadData.path)};
+				for(auto& folderName : getFolderNames(mDownloadData.path)) if(!exists(backupFolder + folderName)) mkdir((backupFolder + folderName).c_str());
+				ofstream ofs{backupFolder + mDownloadData.path, ofstream::binary};
+				string backupContents{getFileContents(localFolder + mDownloadData.path)};
 				ofs << backupContents;
 				ofs.flush(); ofs.close();
 			}
 
-			for(auto& folderName : getFolderNames(mDownloadData.path)) if(!exists(mLocalFolder + folderName)) mkdir((mLocalFolder + folderName).c_str());
+			for(auto& folderName : getFolderNames(mDownloadData.path)) if(!exists(localFolder + folderName)) mkdir((localFolder + folderName).c_str());
 
 			string serverContents{""};
-			ThreadWrapper& getFileContentsThread(startGetFileContents(serverContents, mServerFolder + mDownloadData.path));
+			ThreadWrapper& getFileContentsThread(startGetFileContents(serverContents, serverFolder + mDownloadData.path));
 			waitFor(getFileContentsThread);
-			ofstream ofs{mLocalFolder + mDownloadData.path, ofstream::binary};
+			ofstream ofs{localFolder + mDownloadData.path, ofstream::binary};
 			ofs << serverContents;
 			ofs.flush(); ofs.close();
 
@@ -212,14 +220,14 @@ namespace ssvau
 		thread.launch(); return thread;
 	}
 
-	ThreadWrapper& AutoUpdater::startDownload(const string& mServerFolder, const string& mLocalFolder, const vector<DownloadData>& mToDownload)
+	ThreadWrapper& AutoUpdater::startDownload(const vector<DownloadData>& mToDownload)
 	{
 		auto& thread = memoryManager.create([=]
 		{
 			for(auto& td : mToDownload)
 			{
 				log("Downloading <" + td.path + ">...", "Download");
-				waitFor(startGetFile(mServerFolder, mLocalFolder, td));
+				waitFor(startGetFile(td));
 				log("<" + td.path + "> downloaded", "Download");
 				log("");
 			}

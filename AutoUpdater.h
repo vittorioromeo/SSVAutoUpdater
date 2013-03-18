@@ -19,7 +19,7 @@ namespace ssvau
 	{
 		private:
 			ssvs::Utils::MemoryManager<ssvs::Utils::ThreadWrapper> memoryManager;
-			std::string host, hostFolder, localFolder, serverFolder, hostConfigFile{"updaterConfig.json"}, hostScript{"updaterGetFiles.php"};
+			std::string host, hostFolder, localFolder, serverFolder, hostConfigFile{"updaterConfig.json"}, hostScript{"updaterGetFiles.php"}, backupFolder;
 			Json::Value updaterConfigRoot, serverFilesRoot;
 			std::vector<FileData> serverFiles, localFiles;
 			std::vector<DownloadData> toDownload;
@@ -32,8 +32,8 @@ namespace ssvau
 			
 			ssvs::Utils::ThreadWrapper& startGetJsonRoot(Json::Value& mTargetRoot, const std::string& mServerFileName);
 			ssvs::Utils::ThreadWrapper& startGetFileContents(std::string& mTargetString, const std::string& mServerFileName);
-			ssvs::Utils::ThreadWrapper& startGetFile(const std::string& mServerFolder, const std::string& mLocalFolder, const DownloadData& mDownloadData);
-			ssvs::Utils::ThreadWrapper& startDownload(const std::string& mServerFolder, const std::string& mLocalFolder, const std::vector<DownloadData>& mToDownload);
+			ssvs::Utils::ThreadWrapper& startGetFile(const DownloadData& mDownloadData);
+			ssvs::Utils::ThreadWrapper& startDownload(const std::vector<DownloadData>& mToDownload);
 
 		public:
 			AutoUpdater(const std::string& mHost, const std::string& mHostFolder, const std::string& mLocalFolder);
