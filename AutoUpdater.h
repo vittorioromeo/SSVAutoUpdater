@@ -18,7 +18,7 @@ namespace ssvau
 	class AutoUpdater
 	{
 		private:
-			ssvs::Utils::MemoryManager<ssvs::Utils::ThreadWrapper> memoryManager;
+			ssvu::MemoryManager<ssvs::Utils::ThreadWrapper> memoryManager;
 			std::string host, hostFolder, localFolder, serverFolder, hostConfigFile{"updaterConfig.json"}, hostScript{"updaterGetFiles.php"}, backupFolder;
 			Json::Value updaterConfigRoot, serverFilesRoot;
 			std::vector<FileData> serverFiles, localFiles;

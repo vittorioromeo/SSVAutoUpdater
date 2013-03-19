@@ -64,17 +64,11 @@
     </Configuration>
     <Configuration Name="Release" CompilerType="nuwen" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-s;-O3;-Wextra;-pedantic;-W;-Wall;-std=c++11" C_Options="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
-        <IncludePath Value="."/>
-        <IncludePath Value="../SSVEntitySystem"/>
-        <IncludePath Value="../SSVStart"/>
         <IncludePath Value="../SSVUtils"/>
         <IncludePath Value="../SSVUtilsJson"/>
-        <IncludePath Value="../SSVLuaWrapper"/>
-        <IncludePath Value="../SSVMenuSystem"/>
-        <IncludePath Value="D:/Vee/Software/GitHub/OHWorkspace/SFML/include"/>
-        <IncludePath Value="D:/Vee/Software/GitHub/OHWorkspace/jsoncpp/include"/>
-        <IncludePath Value="C:/lua/include"/>
-        <IncludePath Value="D:/Vee/Software/Repos/sparsehash/build/built/include"/>
+        <IncludePath Value="../SSVStart"/>
+        <IncludePath Value="../SFML/include"/>
+        <IncludePath Value="../jsoncpp/include"/>
       </Compiler>
       <Linker Options="-O2" Required="yes">
         <LibraryPath Value="../SSVUtils/_RELEASE"/>
@@ -87,20 +81,12 @@
         <LibraryPath Value="D:/Vee/Software/GitHub/OHWorkspace/SFML/build2/lib"/>
         <LibraryPath Value="D:/Vee/Software/GitHub/OHWorkspace/jsoncpp/libs/mingw"/>
         <LibraryPath Value="c:/lua"/>
-        <Library Value="SSVEntitySystem"/>
-        <Library Value="SSVStart"/>
-        <Library Value="SSVLuaWrapper"/>
-        <Library Value="SSVMenuSystem"/>
         <Library Value="SSVUtils"/>
-        <Library Value="sfml-window"/>
-        <Library Value="sfml-graphics"/>
+        <Library Value="SSVUtilsJson"/>
+        <Library Value="SSVStart"/>
         <Library Value="sfml-system"/>
-        <Library Value="sfml-audio"/>
         <Library Value="sfml-network"/>
         <Library Value="json_mingw_libmt"/>
-        <Library Value="lua5.1"/>
-        <Library Value="lua51"/>
-        <Library Value="SSVUtilsJson"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="./_RELEASE/$(ProjectName).exe" IntermediateDirectory="./INTERMEDIATE" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./_RELEASE/" PauseExecWhenProcTerminates="yes"/>

@@ -46,12 +46,12 @@ namespace ssvau
 		waitFor(serverFilesRootThread);
 		for(auto& f : serverFilesRoot)
 		{
-			string childPath{replace(getValue<string>(f, "path"), serverFolder, "")};
+			string childPath{getReplaced(getValue<string>(f, "path"), serverFolder, "")};
 			serverFiles.push_back({getValue<string>(f, "md5"), childPath});
 		}
 		for(auto& f : getRecursiveFiles(localFolder))
 		{
-			string childPath{replace(f, localFolder, "")};
+			string childPath{getReplaced(f, localFolder, "")};
 			localFiles.push_back({getMD5Hash(getFileContents(f)), childPath});
 		}
 	}

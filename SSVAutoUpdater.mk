@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=vittorio.romeo
-Date                   :=18/03/2013
+Date                   :=19/03/2013
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -38,11 +38,11 @@ MakeDirCommand         :=makedir
 RcCmpOptions           := 
 RcCompilerName         :=windres
 LinkOptions            :=  -O2
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)../SSVEntitySystem $(IncludeSwitch)../SSVStart $(IncludeSwitch)../SSVUtils $(IncludeSwitch)../SSVUtilsJson $(IncludeSwitch)../SSVLuaWrapper $(IncludeSwitch)../SSVMenuSystem $(IncludeSwitch)D:/Vee/Software/GitHub/OHWorkspace/SFML/include $(IncludeSwitch)D:/Vee/Software/GitHub/OHWorkspace/jsoncpp/include $(IncludeSwitch)C:/lua/include $(IncludeSwitch)D:/Vee/Software/Repos/sparsehash/build/built/include 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)../SSVUtils $(IncludeSwitch)../SSVUtilsJson $(IncludeSwitch)../SSVStart $(IncludeSwitch)../SFML/include $(IncludeSwitch)../jsoncpp/include 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)SSVEntitySystem $(LibrarySwitch)SSVStart $(LibrarySwitch)SSVLuaWrapper $(LibrarySwitch)SSVMenuSystem $(LibrarySwitch)SSVUtils $(LibrarySwitch)sfml-window $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-audio $(LibrarySwitch)sfml-network $(LibrarySwitch)json_mingw_libmt $(LibrarySwitch)lua5.1 $(LibrarySwitch)lua51 $(LibrarySwitch)SSVUtilsJson 
-ArLibs                 :=  "SSVEntitySystem" "SSVStart" "SSVLuaWrapper" "SSVMenuSystem" "SSVUtils" "sfml-window" "sfml-graphics" "sfml-system" "sfml-audio" "sfml-network" "json_mingw_libmt" "lua5.1" "lua51" "SSVUtilsJson" 
+Libs                   := $(LibrarySwitch)SSVUtils $(LibrarySwitch)SSVUtilsJson $(LibrarySwitch)SSVStart $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-network $(LibrarySwitch)json_mingw_libmt 
+ArLibs                 :=  "SSVUtils" "SSVUtilsJson" "SSVStart" "sfml-system" "sfml-network" "json_mingw_libmt" 
 LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)../SSVUtils/_RELEASE $(LibraryPathSwitch)../SSVUtilsJson/_RELEASE $(LibraryPathSwitch)../SSVStart/_RELEASE $(LibraryPathSwitch)../SSVEntitySystem/_RELEASE $(LibraryPathSwitch)../SSVLuaWrapper/_RELEASE $(LibraryPathSwitch)../SSVSCollision/_RELEASE $(LibraryPathSwitch)../SSVMenuSystem/_RELEASE $(LibraryPathSwitch)D:/Vee/Software/GitHub/OHWorkspace/SFML/build2/lib $(LibraryPathSwitch)D:/Vee/Software/GitHub/OHWorkspace/jsoncpp/libs/mingw $(LibraryPathSwitch)c:/lua 
 
 ##
