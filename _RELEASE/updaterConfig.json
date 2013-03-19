@@ -1,0 +1,7 @@
+{
+	"localFolder": "Test/",
+	"host": "http://vittorioromeo.info",
+	"hostFolder": "Misc/Linked/OHUpdater/",
+	"hostConfig": "updaterConfig.json",
+	"hostScript": "updaterGetFiles.php"
+}

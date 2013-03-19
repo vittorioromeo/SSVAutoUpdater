@@ -26,8 +26,8 @@ using Status = Http::Response::Status;
 
 namespace ssvau
 {
-	AutoUpdater::AutoUpdater(const string& mHost, const string& mHostFolder, const string& mLocalFolder) : host{mHost}, hostFolder{mHostFolder},
-		localFolder{mLocalFolder}, backupFolder{localFolder + "_BACKUP/"} { }
+	AutoUpdater::AutoUpdater(const string& mLocalFolder, const string& mHost, const string& mHostFolder, const string& mHostConfig, const string& mHostScript)
+		: localFolder{mLocalFolder}, host{mHost}, hostFolder{mHostFolder}, hostConfigFile{mHostConfig}, hostScript{mHostScript}, backupFolder{localFolder + "_BACKUP/"} { }
 	AutoUpdater::~AutoUpdater() { terminateAll(); }
 
 	void AutoUpdater::runGetServerData()
@@ -38,9 +38,10 @@ namespace ssvau
 
 		// Wait until server config file has been downloaded, then set values
 		waitFor(configRootThread);
-		serverFolder = getValue<string>(updaterConfigRoot, "dataFolder");
-		serverExcludedFiles = getArray<string>(updaterConfigRoot, "excludedFiles");
+		serverFolder = 			getValue<string>(updaterConfigRoot, "dataFolder");
+		serverExcludedFiles = 	getArray<string>(updaterConfigRoot, "excludedFiles");
 		serverExcludedFolders = getArray<string>(updaterConfigRoot, "excludedFolders");
+		serverOnlyNewFiles = 	getArray<string>(updaterConfigRoot, "onlyNewFiles");
 
 		// Wait until server PHP script finished returning file data, then fill data vectors
 		waitFor(serverFilesRootThread);
@@ -49,10 +50,11 @@ namespace ssvau
 			string childPath{getReplaced(getValue<string>(f, "path"), serverFolder, "")};
 			serverFiles.push_back({getValue<string>(f, "md5"), childPath});
 		}
-		for(auto& f : getRecursiveFiles(localFolder))
+		for(auto& f : getRecursiveAll(localFolder))
 		{
 			string childPath{getReplaced(f, localFolder, "")};
-			localFiles.push_back({getMD5Hash(getFileContents(f)), childPath});
+			if(isFolder(f)) localFiles.push_back({"FOLDER", childPath + "/"});
+			else localFiles.push_back({getMD5Hash(getFileContents(f)), childPath});
 		}
 	}
 	void AutoUpdater::runDisplayData()
@@ -125,11 +127,15 @@ namespace ssvau
 				log("<" + serverFile.path + "> exists locally - comparing...");
 
 				// If the file exists locally and has same MD5 skip - otherwise force download
-				if(localFile.md5 == serverFile.md5) log("<" + serverFile.path + "> matches");
+				if(localFile.md5 == "FOLDER" || localFile.md5 == serverFile.md5) log("<" + serverFile.path + "> matches");
 				else
 				{
-					log("<" + serverFile.path + "> doesn't match, must download");
-					toDownload.push_back({serverFile.path, true});
+					if(contains(serverOnlyNewFiles, serverFile.path)) log("<" + serverFile.path + "> doesn't match, but won't be downloaded because it exists");
+					else
+					{
+						log("<" + serverFile.path + "> doesn't match, must download");
+						toDownload.push_back({serverFile.path, true});
+					}
 				}
 			}
 			else

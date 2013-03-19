@@ -19,11 +19,11 @@ namespace ssvau
 	{
 		private:
 			ssvu::MemoryManager<ssvs::Utils::ThreadWrapper> memoryManager;
-			std::string host, hostFolder, localFolder, serverFolder, hostConfigFile{"updaterConfig.json"}, hostScript{"updaterGetFiles.php"}, backupFolder;
+			std::string localFolder, host, hostFolder, hostConfigFile, hostScript, backupFolder, serverFolder;
 			Json::Value updaterConfigRoot, serverFilesRoot;
 			std::vector<FileData> serverFiles, localFiles;
 			std::vector<DownloadData> toDownload;
-			std::vector<std::string> serverExcludedFiles, serverExcludedFolders;
+			std::vector<std::string> serverExcludedFiles, serverExcludedFolders, serverOnlyNewFiles;
 
 			void runGetServerData();
 			void runDisplayData();
@@ -36,7 +36,7 @@ namespace ssvau
 			ssvs::Utils::ThreadWrapper& startDownload(const std::vector<DownloadData>& mToDownload);
 
 		public:
-			AutoUpdater(const std::string& mHost, const std::string& mHostFolder, const std::string& mLocalFolder);
+			AutoUpdater(const std::string& mLocalFolder, const std::string& mHost, const std::string& mHostFolder, const std::string& mHostConfig, const std::string& mHostScript);
 			~AutoUpdater();
 
 			void run();
