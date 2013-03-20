@@ -1,5 +1,5 @@
 {
-	"localFolder": "Test/",
+	"localFolder": "./_OPENHEXAGON/",
 	"host": "http://vittorioromeo.info",
 	"hostFolder": "Misc/Linked/OHUpdater/",
 	"hostConfig": "updaterConfig.json",

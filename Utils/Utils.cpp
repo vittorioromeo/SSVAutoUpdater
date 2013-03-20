@@ -2,12 +2,11 @@
 // License: Academic Free License ("AFL") v. 3.0
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
-#include <SSVUtils.h>
+#include <SSVUtils/SSVUtils.h>
 #include "Utils/Utils.h"
-#include "Utils/MD5.h"
 
 using namespace std;
-using namespace ssvu::Utils;
+using namespace ssvu;
 
 namespace ssvau
 {

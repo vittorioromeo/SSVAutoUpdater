@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=vittorio.romeo
-Date                   :=19/03/2013
+Date                   :=20/03/2013
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -38,7 +38,7 @@ MakeDirCommand         :=makedir
 RcCmpOptions           := 
 RcCompilerName         :=windres
 LinkOptions            :=  -O2
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)../SSVUtils $(IncludeSwitch)../SSVUtilsJson $(IncludeSwitch)../SSVStart $(IncludeSwitch)../SFML/include $(IncludeSwitch)../jsoncpp/include 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)../SSVUtils/include $(IncludeSwitch)../SSVUtilsJson/include $(IncludeSwitch)../SSVStart $(IncludeSwitch)../SFML/include $(IncludeSwitch)../jsoncpp/include 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := $(LibrarySwitch)SSVUtils $(LibrarySwitch)SSVUtilsJson $(LibrarySwitch)SSVStart $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-network $(LibrarySwitch)json_mingw_libmt 
@@ -63,7 +63,7 @@ CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXWIN:=C:\wxWidgets-2.9.4
 WXCFG:=gcc_dll\mswu
-Objects0=$(IntermediateDirectory)/main$(ObjectSuffix) $(IntermediateDirectory)/AutoUpdater$(ObjectSuffix) $(IntermediateDirectory)/Utils_MD5$(ObjectSuffix) $(IntermediateDirectory)/Utils_Utils$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main$(ObjectSuffix) $(IntermediateDirectory)/AutoUpdater$(ObjectSuffix) $(IntermediateDirectory)/Utils_Utils$(ObjectSuffix) 
 
 Objects=$(Objects0) 
 
@@ -104,14 +104,6 @@ $(IntermediateDirectory)/AutoUpdater$(DependSuffix): AutoUpdater.cpp
 $(IntermediateDirectory)/AutoUpdater$(PreprocessSuffix): AutoUpdater.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/AutoUpdater$(PreprocessSuffix) "AutoUpdater.cpp"
 
-$(IntermediateDirectory)/Utils_MD5$(ObjectSuffix): Utils/MD5.cpp $(IntermediateDirectory)/Utils_MD5$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/SSVAutoUpdater/Utils/MD5.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Utils_MD5$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Utils_MD5$(DependSuffix): Utils/MD5.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Utils_MD5$(ObjectSuffix) -MF$(IntermediateDirectory)/Utils_MD5$(DependSuffix) -MM "Utils/MD5.cpp"
-
-$(IntermediateDirectory)/Utils_MD5$(PreprocessSuffix): Utils/MD5.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Utils_MD5$(PreprocessSuffix) "Utils/MD5.cpp"
-
 $(IntermediateDirectory)/Utils_Utils$(ObjectSuffix): Utils/Utils.cpp $(IntermediateDirectory)/Utils_Utils$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/SSVAutoUpdater/Utils/Utils.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Utils_Utils$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Utils_Utils$(DependSuffix): Utils/Utils.cpp
@@ -132,9 +124,6 @@ clean:
 	$(RM) $(IntermediateDirectory)/AutoUpdater$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/AutoUpdater$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/AutoUpdater$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/Utils_MD5$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/Utils_MD5$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/Utils_MD5$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/Utils_Utils$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/Utils_Utils$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/Utils_Utils$(PreprocessSuffix)

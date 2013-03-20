@@ -1,9 +1,10 @@
-[Online] Getting <updaterConfig.json> from server...
 [Online] Getting <updaterGetFiles.php> from server...
+[Online] Getting <updaterConfig.json> from server...
 [Online] <updaterConfig.json> got successfully
 [Online] Finished getting <updaterConfig.json>
 [Online] <updaterGetFiles.php> got successfully
 [Online] Finished getting <updaterGetFiles.php>
+[FileSystem] Directory "Test/" not found
 [ServerFile] SSVEntitySystem.dll ed2ac1eee2d9a615516c464cb434f1bf
 [ServerFile] ConfigOverrides/highfps.json 6424ebbeffa7398ebea30bb49863b8de
 [ServerFile] ConfigOverrides/nocosmeticscript.json 3df9a4883206761f6ffef0aef5273626
@@ -142,556 +143,968 @@
 [ServerFile] highfps.bat 3b2cace74de36b98ccf8949b367f4473
 [ServerFile] sfml-network-2.dll 4adc833eb69f82937b6208c430922ff2
 
-[LocalFile] Assets/beep.ogg e94b05f79cb55cdbd7fd571bbdbb14a4
-[LocalFile] Assets/bottomBar.png c2f026e06402524a8113d78c8f89487e
-[LocalFile] Assets/creditsBar1.png 07032252caaefdf2cbc4e60a6898fa26
-[LocalFile] Assets/creditsBar2.png 8ff4f1043bc7af07ea113593d49ac43f
-[LocalFile] Assets/death.ogg 499b7f729e96bc704516d29e20c15d1d
-[LocalFile] Assets/gameOver.ogg 3dc5d4d6512ec37aa2c664494ea14eaa
-[LocalFile] Assets/go.ogg f01ed1ed7b0a963a8ad99dc09d6372bb
-[LocalFile] Assets/imagine.ttf 152ed3f7e1ea590e0cf273a9818d5f7a
-[LocalFile] Assets/levelUp.ogg e95e75feac3f88dbef48a447f1f9c8b3
-[LocalFile] Assets/openHexagon.ogg 4cfb876888349296ad583d120747a8c0
-[LocalFile] Assets/titleBar.png b7cd12e8276ea6a54fbfed142bc7aff3
-[LocalFile] Assets/ FOLDER
-[LocalFile] config.json c56183304e209411be1284ccc4bb6024
-[LocalFile] ConfigOverrides/debug.json 89f26e7475db75ae572bb71ec3724843
-[LocalFile] ConfigOverrides/fraps.json 42e4e01e00f0ff4060ec4c8e3a0691d8
-[LocalFile] ConfigOverrides/fullscreen.json de9d87a96d992ded109b704ad4d2494f
-[LocalFile] ConfigOverrides/highfps.json 6424ebbeffa7398ebea30bb49863b8de
-[LocalFile] ConfigOverrides/no3D.json 9aa2bf346f0354f0f217a092f772b439
-[LocalFile] ConfigOverrides/noaudio.json dffeb9869a2a264252e4fceb4a0b393f
-[LocalFile] ConfigOverrides/nocosmeticscript.json 3df9a4883206761f6ffef0aef5273626
-[LocalFile] ConfigOverrides/windowed.json fe251e1600d1404ea936ad90e31333e2
-[LocalFile] ConfigOverrides/ FOLDER
-[LocalFile] debug.bat 4d8e0ebcc1837db58512b0a400e8356c
-[LocalFile] fraps.bat 368102a4f18d7841c99238d80fc0fccc
-[LocalFile] fullscreen.bat 5fa9708c3297bdd4fb30d70503e7ceb3
-[LocalFile] fullscreen_no3D.bat 49174d723c3edeecc225d17d66749e10
-[LocalFile] highfps.bat 3b2cace74de36b98ccf8949b367f4473
-[LocalFile] libgcc_s_dw2-1.dll 6891946ef55e211f0b6abaca235a5160
-[LocalFile] libsndfile-1.dll 169eec11e2f401e14fd0da9746dc139d
-[LocalFile] libstdc++-6.dll 13a00917b6bbe4cc11acfceefbc3f4c5
-[LocalFile] lua5.1.dll 2af8a0f8ef859df9e73949d5a85cfb64
-[LocalFile] lua51.dll 7fa818f532effd80cf7c1c54676e5a0d
-[LocalFile] noaudio.bat e6c3375f836724380fb02c72ad2bc2ea
-[LocalFile] nocosmeticscript.bat 6a7f37b6e669d78559ed5574a7efe1e1
-[LocalFile] openal32.dll 717f035febed53168d8079c88b657e7b
-[LocalFile] Packs/VeeDefault/Events/ FOLDER
-[LocalFile] Packs/VeeDefault/Levels/easy.json 2ff8ff08ac379cd9d5f4cee6864eb2c8
-[LocalFile] Packs/VeeDefault/Levels/extra.json 231f2642d8e3918681dd6a16498ece40
-[LocalFile] Packs/VeeDefault/Levels/goldenratio.json 78c80e9b298d14b60c1b1fb71d5057ca
-[LocalFile] Packs/VeeDefault/Levels/hard.json 2e3c469a85f65fceec79ec8fa5b825bb
-[LocalFile] Packs/VeeDefault/Levels/lunatic.json 3a18ae0caedc295c3742abafb95187eb
-[LocalFile] Packs/VeeDefault/Levels/normal.json 89057cb4ed133dce79528e910cd0fc46
-[LocalFile] Packs/VeeDefault/Levels/pi.json 57595dc6dd7d511eddbd9efebe56aa18
-[LocalFile] Packs/VeeDefault/Levels/tutorial.json 0db81a2e1f5ec86ddcc251b58ad2768f
-[LocalFile] Packs/VeeDefault/Levels/tutorial2.json ed5d2f7deb03dac5f9898ca2e5e86dd0
-[LocalFile] Packs/VeeDefault/Levels/ FOLDER
-[LocalFile] Packs/VeeDefault/Music/callMeKatla.json f229186f3c41416ed1d78f5372413474
-[LocalFile] Packs/VeeDefault/Music/callMeKatla.ogg fba46aeb455ef6fce9fe8b65d523507e
-[LocalFile] Packs/VeeDefault/Music/captainCool.json 8c99639786607eb505a4d69a39bb726a
-[LocalFile] Packs/VeeDefault/Music/captainCool.ogg 5ecbf5f67fd52e56b923262815fbd195
-[LocalFile] Packs/VeeDefault/Music/drFinkelfracken.json 2b14df421e6629176e6f93b20ae69364
-[LocalFile] Packs/VeeDefault/Music/drFinkelfracken.ogg f020fc9ad8be3f05dfd450f62a6cc50e
-[LocalFile] Packs/VeeDefault/Music/jackRussel.json d78a6ac9ab53031913166f7f36b33d7b
-[LocalFile] Packs/VeeDefault/Music/jackRussel.ogg 6b28688c9ff03788c9d097782adbb345
-[LocalFile] Packs/VeeDefault/Music/mazeOfMayonnaise.json 723cfeaa729b20cdb7708c4f50c43b9b
-[LocalFile] Packs/VeeDefault/Music/mazeOfMayonnaise.ogg 453a77832dcf45c921d964a8df4b4c8f
-[LocalFile] Packs/VeeDefault/Music/milkyWays.json f388512e905987acdd3c89ee661dddfb
-[LocalFile] Packs/VeeDefault/Music/milkyWays.ogg 6190fe66b418b1ad33611f2e57c5a0fb
-[LocalFile] Packs/VeeDefault/Music/starshipShowdown.json af204ecc69a0356f311578aae5e25ff0
-[LocalFile] Packs/VeeDefault/Music/starshipShowdown.ogg 3b727a97e2eec53a5d155cf2fd7fe52d
-[LocalFile] Packs/VeeDefault/Music/steampunkWarlord.json 2be6236b2d3040226006789299601eec
-[LocalFile] Packs/VeeDefault/Music/steampunkWarlord.ogg e0b1ccab677a4819dbd92ff99d7c7715
-[LocalFile] Packs/VeeDefault/Music/ FOLDER
-[LocalFile] Packs/VeeDefault/pack.json 573eedc9163835ea19bc06001c8bb1e7
-[LocalFile] Packs/VeeDefault/Scripts/alternativepatterns.lua 3982f0548e0116c4bcdd9df1451f3e74
-[LocalFile] Packs/VeeDefault/Scripts/common.lua 74ea2f5f68a345747e76d960c4ad2682
-[LocalFile] Packs/VeeDefault/Scripts/commonpatterns.lua 167468d8981abe66e2a82c3877d662af
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua 11ccce22e5fcf0cd5c9594c89dec215f
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua 016d117d8b6b720c8c6d647a6e2f4ce9
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua 537d22c49bfa579897d8f3f56cd33264
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua 0807f6ebb708e5a4a55f0041c755f363
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua e159bbeadf5535fa625ccaafbd2d1688
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua a81810a5abfdb551297b07708e6a595a
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/zen.lua 9e560079f3251c23c1878f518547306a
-[LocalFile] Packs/VeeDefault/Scripts/defaultLevels/ FOLDER
-[LocalFile] Packs/VeeDefault/Scripts/patternizerpatterns.lua ceafcd97425a8c2fb2945b1bef1831ec
-[LocalFile] Packs/VeeDefault/Scripts/utils.lua 0d5aec9f5eeecb73a657b93614407afa
-[LocalFile] Packs/VeeDefault/Scripts/ FOLDER
-[LocalFile] Packs/VeeDefault/Styles/danger.json 9d3075c72b0fbfa2a1a1f58766758ee4
-[LocalFile] Packs/VeeDefault/Styles/dangertest.json 78fc26af08417d182f557b71740e69d8
-[LocalFile] Packs/VeeDefault/Styles/dark.json 3b3331ce741231a9bd33f206022fa1a9
-[LocalFile] Packs/VeeDefault/Styles/goldenratio.json 49c018db765a83371ba35f078693772b
-[LocalFile] Packs/VeeDefault/Styles/gray.json 6af6ea5eef271b06398efacefca6550b
-[LocalFile] Packs/VeeDefault/Styles/light.json b378af672f909d8f79854b7db3ee6d93
-[LocalFile] Packs/VeeDefault/Styles/pistyle.json 77248c58511944110b0c87af5baa3825
-[LocalFile] Packs/VeeDefault/Styles/toxic.json 68a05e5f2d4b0669fa0de4df37d6bda4
-[LocalFile] Packs/VeeDefault/Styles/tutorial.json 0f8d6b9e0301c5cc64f76705e92ede35
-[LocalFile] Packs/VeeDefault/Styles/tutorial2.json f4606ae340d3dd5be73ca5597027436b
-[LocalFile] Packs/VeeDefault/Styles/ FOLDER
-[LocalFile] Packs/VeeDefault/ FOLDER
-[LocalFile] Packs/VeeEndurance/Events/ FOLDER
-[LocalFile] Packs/VeeEndurance/Levels/commando.json c19f1b0ddb959d462559b9f9203ed8a8
-[LocalFile] Packs/VeeEndurance/Levels/labyrinth.json e48286d2ff3ac51bf33fca8b4af51a4a
-[LocalFile] Packs/VeeEndurance/Levels/ FOLDER
-[LocalFile] Packs/VeeEndurance/Music/commandoSteve.json af8e90d61c2f8a8015db265dc7d70e55
-[LocalFile] Packs/VeeEndurance/Music/commandoSteve.ogg 4a4a561c1502c14d1b2b86bf72b580b1
-[LocalFile] Packs/VeeEndurance/Music/ FOLDER
-[LocalFile] Packs/VeeEndurance/pack.json 947ba0906337ee10e1070163630e330d
-[LocalFile] Packs/VeeEndurance/Scripts/alternativepatterns.lua 3982f0548e0116c4bcdd9df1451f3e74
-[LocalFile] Packs/VeeEndurance/Scripts/common.lua 047945d1a99d35b8f244289e165914ed
-[LocalFile] Packs/VeeEndurance/Scripts/commonpatterns.lua 1338c90b486f6803aa315b5bec667b7c
-[LocalFile] Packs/VeeEndurance/Scripts/defaultLevels/commando.lua 15eb89264595febd7390d3506beb7aa6
-[LocalFile] Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua ab97081484186825fd9c951f452d1fd0
-[LocalFile] Packs/VeeEndurance/Scripts/defaultLevels/ FOLDER
-[LocalFile] Packs/VeeEndurance/Scripts/patternizerpatterns.lua ceafcd97425a8c2fb2945b1bef1831ec
-[LocalFile] Packs/VeeEndurance/Scripts/utils.lua 0d5aec9f5eeecb73a657b93614407afa
-[LocalFile] Packs/VeeEndurance/Scripts/ FOLDER
-[LocalFile] Packs/VeeEndurance/Sounds/test.ogg 54150faeaf6cbdfb019756ecaf16ec46
-[LocalFile] Packs/VeeEndurance/Sounds/ FOLDER
-[LocalFile] Packs/VeeEndurance/Styles/wordless.json b038cd173161b07b85129dfca0a84659
-[LocalFile] Packs/VeeEndurance/Styles/wordlessinverse.json b22c6749e4e2c9872d803dd778694536
-[LocalFile] Packs/VeeEndurance/Styles/ FOLDER
-[LocalFile] Packs/VeeEndurance/ FOLDER
-[LocalFile] Packs/ FOLDER
-[LocalFile] Profiles/ FOLDER
-[LocalFile] sfml-audio-2.dll 2e1e512904e29ce4432fa253d5cd06c7
-[LocalFile] sfml-graphics-2.dll 04aed48765da07fe1e95fa3db8b2cfd9
-[LocalFile] sfml-network-2.dll 4adc833eb69f82937b6208c430922ff2
-[LocalFile] sfml-system-2.dll 9efd304f7415cb97ba5d53c421739e54
-[LocalFile] sfml-window-2.dll 8a739e56cad8a437aefedd85e1901566
-[LocalFile] SSVEntitySystem.dll ed2ac1eee2d9a615516c464cb434f1bf
-[LocalFile] SSVLuaWrapper.dll 87ab71945dd55ef9463253a2e13e55e8
-[LocalFile] SSVMenuSystem.dll 3cefac8d471f39e6a1b5a5041eaee35a
-[LocalFile] SSVOpenHexagon.exe bdc0266e8c70a163245d2c33acb4a1a0
-[LocalFile] SSVStart.dll 749fec9958697448316a2d7750324428
-[LocalFile] windowed.bat 8c724bcf8d35e6d7f942d980cfba7e12
-[LocalFile] windowed_no3D.bat 91bc766527ae90d80744de891d505c3b
-[LocalFile] _BACKUP/ConfigOverrides/ FOLDER
-[LocalFile] _BACKUP/ FOLDER
-[LocalFile] _DOCUMENTATION/README.html 8343d43d178f3a637e29b2776a407d4d
-[LocalFile] _DOCUMENTATION/README_CONFIGOVERRIDES.html 5d6e756bb190d6fd2e757239a85c0f2c
-[LocalFile] _DOCUMENTATION/README_EVENTS.html bfb143251a3dabb4838f547a7f002b1f
-[LocalFile] _DOCUMENTATION/README_LEVELS.html cdef3812bd488b33c71112db097c4b5b
-[LocalFile] _DOCUMENTATION/README_MUSIC.html 3ee0477e6b2f0126b5b7d91131cc17aa
-[LocalFile] _DOCUMENTATION/README_ONLINE.html fcbcb1a99ebfaa54c0dc0cda87b6d9f3
-[LocalFile] _DOCUMENTATION/README_SCRIPTING.html ab8ce8297115f08ae391a9601750bba3
-[LocalFile] _DOCUMENTATION/README_SOUNDS.html f6d1f67058efa7fb5e42a2ae040b3f47
-[LocalFile] _DOCUMENTATION/README_STYLES.html f1e6557649f0ec928c12642aa8d1bc83
-[LocalFile] _DOCUMENTATION/ FOLDER
-
-<SSVEntitySystem.dll> exists locally - comparing...
-<SSVEntitySystem.dll> matches
-
-<ConfigOverrides/highfps.json> exists locally - comparing...
-<ConfigOverrides/highfps.json> matches
-
-<ConfigOverrides/nocosmeticscript.json> exists locally - comparing...
-<ConfigOverrides/nocosmeticscript.json> matches
 
-<ConfigOverrides/debug.json> exists locally - comparing...
-<ConfigOverrides/debug.json> matches
+Local folder does not exist, creating
+Backup folder does not exist, creating
+<SSVEntitySystem.dll> doesn't exist locally - must download
 
-<ConfigOverrides/fullscreen.json> exists locally - comparing...
-<ConfigOverrides/fullscreen.json> matches
+<ConfigOverrides/highfps.json> doesn't exist locally - must download
 
-<ConfigOverrides/fraps.json> exists locally - comparing...
-<ConfigOverrides/fraps.json> matches
+<ConfigOverrides/nocosmeticscript.json> doesn't exist locally - must download
 
-<ConfigOverrides/noaudio.json> exists locally - comparing...
-<ConfigOverrides/noaudio.json> matches
+<ConfigOverrides/debug.json> doesn't exist locally - must download
 
-<ConfigOverrides/windowed.json> exists locally - comparing...
-<ConfigOverrides/windowed.json> matches
+<ConfigOverrides/fullscreen.json> doesn't exist locally - must download
 
-<ConfigOverrides/no3D.json> exists locally - comparing...
-<ConfigOverrides/no3D.json> matches
+<ConfigOverrides/fraps.json> doesn't exist locally - must download
 
-<ConfigOverrides/> exists locally - comparing...
-<ConfigOverrides/> matches
+<ConfigOverrides/noaudio.json> doesn't exist locally - must download
 
-<openal32.dll> exists locally - comparing...
-<openal32.dll> matches
+<ConfigOverrides/windowed.json> doesn't exist locally - must download
 
-<fullscreen.bat> exists locally - comparing...
-<fullscreen.bat> matches
+<ConfigOverrides/no3D.json> doesn't exist locally - must download
 
-<lua5.1.dll> exists locally - comparing...
-<lua5.1.dll> matches
+<ConfigOverrides/> doesn't exist locally - must download
 
-<libsndfile-1.dll> exists locally - comparing...
-<libsndfile-1.dll> matches
+<openal32.dll> doesn't exist locally - must download
 
-<fullscreen_no3D.bat> exists locally - comparing...
-<fullscreen_no3D.bat> matches
+<fullscreen.bat> doesn't exist locally - must download
 
-<SSVStart.dll> exists locally - comparing...
-<SSVStart.dll> matches
+<lua5.1.dll> doesn't exist locally - must download
 
-<SSVMenuSystem.dll> exists locally - comparing...
-<SSVMenuSystem.dll> matches
+<libsndfile-1.dll> doesn't exist locally - must download
 
-<_DOCUMENTATION/README.html> exists locally - comparing...
-<_DOCUMENTATION/README.html> matches
+<fullscreen_no3D.bat> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_SOUNDS.html> exists locally - comparing...
-<_DOCUMENTATION/README_SOUNDS.html> matches
+<SSVStart.dll> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_EVENTS.html> exists locally - comparing...
-<_DOCUMENTATION/README_EVENTS.html> matches
+<SSVMenuSystem.dll> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_ONLINE.html> exists locally - comparing...
-<_DOCUMENTATION/README_ONLINE.html> matches
+<_DOCUMENTATION/README.html> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_CONFIGOVERRIDES.html> exists locally - comparing...
-<_DOCUMENTATION/README_CONFIGOVERRIDES.html> matches
+<_DOCUMENTATION/README_SOUNDS.html> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_LEVELS.html> exists locally - comparing...
-<_DOCUMENTATION/README_LEVELS.html> matches
+<_DOCUMENTATION/README_EVENTS.html> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_STYLES.html> exists locally - comparing...
-<_DOCUMENTATION/README_STYLES.html> matches
+<_DOCUMENTATION/README_ONLINE.html> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_SCRIPTING.html> exists locally - comparing...
-<_DOCUMENTATION/README_SCRIPTING.html> matches
+<_DOCUMENTATION/README_CONFIGOVERRIDES.html> doesn't exist locally - must download
 
-<_DOCUMENTATION/README_MUSIC.html> exists locally - comparing...
-<_DOCUMENTATION/README_MUSIC.html> matches
+<_DOCUMENTATION/README_LEVELS.html> doesn't exist locally - must download
 
-<_DOCUMENTATION/> exists locally - comparing...
-<_DOCUMENTATION/> matches
+<_DOCUMENTATION/README_STYLES.html> doesn't exist locally - must download
 
-<debug.bat> exists locally - comparing...
-<debug.bat> matches
+<_DOCUMENTATION/README_SCRIPTING.html> doesn't exist locally - must download
 
-<SSVOpenHexagon.exe> exists locally - comparing...
-<SSVOpenHexagon.exe> matches
+<_DOCUMENTATION/README_MUSIC.html> doesn't exist locally - must download
 
-<Assets/imagine.ttf> exists locally - comparing...
-<Assets/imagine.ttf> matches
+<_DOCUMENTATION/> doesn't exist locally - must download
 
-<Assets/levelUp.ogg> exists locally - comparing...
-<Assets/levelUp.ogg> matches
+<debug.bat> doesn't exist locally - must download
 
-<Assets/gameOver.ogg> exists locally - comparing...
-<Assets/gameOver.ogg> matches
+<SSVOpenHexagon.exe> doesn't exist locally - must download
 
-<Assets/creditsBar1.png> exists locally - comparing...
-<Assets/creditsBar1.png> matches
+<Assets/imagine.ttf> doesn't exist locally - must download
 
-<Assets/bottomBar.png> exists locally - comparing...
-<Assets/bottomBar.png> matches
+<Assets/levelUp.ogg> doesn't exist locally - must download
 
-<Assets/openHexagon.ogg> exists locally - comparing...
-<Assets/openHexagon.ogg> matches
+<Assets/gameOver.ogg> doesn't exist locally - must download
 
-<Assets/creditsBar2.png> exists locally - comparing...
-<Assets/creditsBar2.png> matches
+<Assets/creditsBar1.png> doesn't exist locally - must download
 
-<Assets/titleBar.png> exists locally - comparing...
-<Assets/titleBar.png> matches
+<Assets/bottomBar.png> doesn't exist locally - must download
 
-<Assets/go.ogg> exists locally - comparing...
-<Assets/go.ogg> matches
+<Assets/openHexagon.ogg> doesn't exist locally - must download
 
-<Assets/death.ogg> exists locally - comparing...
-<Assets/death.ogg> matches
+<Assets/creditsBar2.png> doesn't exist locally - must download
 
-<Assets/beep.ogg> exists locally - comparing...
-<Assets/beep.ogg> matches
+<Assets/titleBar.png> doesn't exist locally - must download
 
-<Assets/> exists locally - comparing...
-<Assets/> matches
+<Assets/go.ogg> doesn't exist locally - must download
 
-<SSVLuaWrapper.dll> exists locally - comparing...
-<SSVLuaWrapper.dll> matches
+<Assets/death.ogg> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Levels/commando.json> exists locally - comparing...
-<Packs/VeeEndurance/Levels/commando.json> matches
+<Assets/beep.ogg> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Levels/labyrinth.json> exists locally - comparing...
-<Packs/VeeEndurance/Levels/labyrinth.json> matches
+<Assets/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Levels/> exists locally - comparing...
-<Packs/VeeEndurance/Levels/> matches
+<SSVLuaWrapper.dll> doesn't exist locally - must download
 
-<Packs/VeeEndurance/pack.json> exists locally - comparing...
-<Packs/VeeEndurance/pack.json> matches
+<Packs/VeeEndurance/Levels/commando.json> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Styles/wordless.json> exists locally - comparing...
-<Packs/VeeEndurance/Styles/wordless.json> matches
+<Packs/VeeEndurance/Levels/labyrinth.json> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Styles/wordlessinverse.json> exists locally - comparing...
-<Packs/VeeEndurance/Styles/wordlessinverse.json> matches
+<Packs/VeeEndurance/Levels/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Styles/> exists locally - comparing...
-<Packs/VeeEndurance/Styles/> matches
+<Packs/VeeEndurance/pack.json> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Events/> exists locally - comparing...
-<Packs/VeeEndurance/Events/> matches
+<Packs/VeeEndurance/Styles/wordless.json> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Sounds/test.ogg> exists locally - comparing...
-<Packs/VeeEndurance/Sounds/test.ogg> matches
+<Packs/VeeEndurance/Styles/wordlessinverse.json> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Sounds/> exists locally - comparing...
-<Packs/VeeEndurance/Sounds/> matches
+<Packs/VeeEndurance/Styles/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Music/commandoSteve.json> exists locally - comparing...
-<Packs/VeeEndurance/Music/commandoSteve.json> matches
+<Packs/VeeEndurance/Events/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Music/commandoSteve.ogg> exists locally - comparing...
-<Packs/VeeEndurance/Music/commandoSteve.ogg> matches
+<Packs/VeeEndurance/Sounds/test.ogg> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Music/> exists locally - comparing...
-<Packs/VeeEndurance/Music/> matches
+<Packs/VeeEndurance/Sounds/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/utils.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/utils.lua> matches
+<Packs/VeeEndurance/Music/commandoSteve.json> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/patternizerpatterns.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/patternizerpatterns.lua> matches
+<Packs/VeeEndurance/Music/commandoSteve.ogg> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/defaultLevels/commando.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/defaultLevels/commando.lua> matches
+<Packs/VeeEndurance/Music/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua> matches
+<Packs/VeeEndurance/Scripts/utils.lua> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/defaultLevels/> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/defaultLevels/> matches
+<Packs/VeeEndurance/Scripts/patternizerpatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/common.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/common.lua> matches
+<Packs/VeeEndurance/Scripts/defaultLevels/commando.lua> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/alternativepatterns.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/alternativepatterns.lua> matches
+<Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/commonpatterns.lua> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/commonpatterns.lua> matches
+<Packs/VeeEndurance/Scripts/defaultLevels/> doesn't exist locally - must download
 
-<Packs/VeeEndurance/Scripts/> exists locally - comparing...
-<Packs/VeeEndurance/Scripts/> matches
+<Packs/VeeEndurance/Scripts/common.lua> doesn't exist locally - must download
 
-<Packs/VeeEndurance/> exists locally - comparing...
-<Packs/VeeEndurance/> matches
+<Packs/VeeEndurance/Scripts/alternativepatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/pi.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/pi.json> matches
+<Packs/VeeEndurance/Scripts/commonpatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/normal.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/normal.json> matches
+<Packs/VeeEndurance/Scripts/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/lunatic.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/lunatic.json> matches
+<Packs/VeeEndurance/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/tutorial2.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/tutorial2.json> matches
+<Packs/VeeDefault/Levels/pi.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/tutorial.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/tutorial.json> matches
+<Packs/VeeDefault/Levels/normal.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/goldenratio.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/goldenratio.json> matches
+<Packs/VeeDefault/Levels/lunatic.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/easy.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/easy.json> matches
+<Packs/VeeDefault/Levels/tutorial2.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/hard.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/hard.json> matches
+<Packs/VeeDefault/Levels/tutorial.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/extra.json> exists locally - comparing...
-<Packs/VeeDefault/Levels/extra.json> matches
+<Packs/VeeDefault/Levels/goldenratio.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Levels/> exists locally - comparing...
-<Packs/VeeDefault/Levels/> matches
+<Packs/VeeDefault/Levels/easy.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/pack.json> exists locally - comparing...
-<Packs/VeeDefault/pack.json> matches
+<Packs/VeeDefault/Levels/hard.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/danger.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/danger.json> matches
+<Packs/VeeDefault/Levels/extra.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/dangertest.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/dangertest.json> matches
+<Packs/VeeDefault/Levels/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/pistyle.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/pistyle.json> matches
+<Packs/VeeDefault/pack.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/tutorial2.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/tutorial2.json> matches
+<Packs/VeeDefault/Styles/danger.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/dark.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/dark.json> matches
+<Packs/VeeDefault/Styles/dangertest.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/tutorial.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/tutorial.json> matches
+<Packs/VeeDefault/Styles/pistyle.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/gray.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/gray.json> matches
+<Packs/VeeDefault/Styles/tutorial2.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/goldenratio.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/goldenratio.json> matches
+<Packs/VeeDefault/Styles/dark.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/toxic.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/toxic.json> matches
+<Packs/VeeDefault/Styles/tutorial.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/light.json> exists locally - comparing...
-<Packs/VeeDefault/Styles/light.json> matches
+<Packs/VeeDefault/Styles/gray.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Styles/> exists locally - comparing...
-<Packs/VeeDefault/Styles/> matches
+<Packs/VeeDefault/Styles/goldenratio.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Events/> exists locally - comparing...
-<Packs/VeeDefault/Events/> matches
+<Packs/VeeDefault/Styles/toxic.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/milkyWays.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/milkyWays.ogg> matches
+<Packs/VeeDefault/Styles/light.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/steampunkWarlord.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/steampunkWarlord.ogg> matches
+<Packs/VeeDefault/Styles/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/starshipShowdown.json> exists locally - comparing...
-<Packs/VeeDefault/Music/starshipShowdown.json> matches
+<Packs/VeeDefault/Events/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/starshipShowdown.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/starshipShowdown.ogg> matches
+<Packs/VeeDefault/Music/milkyWays.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/jackRussel.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/jackRussel.ogg> matches
+<Packs/VeeDefault/Music/steampunkWarlord.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/drFinkelfracken.json> exists locally - comparing...
-<Packs/VeeDefault/Music/drFinkelfracken.json> matches
+<Packs/VeeDefault/Music/starshipShowdown.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/captainCool.json> exists locally - comparing...
-<Packs/VeeDefault/Music/captainCool.json> matches
+<Packs/VeeDefault/Music/starshipShowdown.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/mazeOfMayonnaise.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/mazeOfMayonnaise.ogg> matches
+<Packs/VeeDefault/Music/jackRussel.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/callMeKatla.json> exists locally - comparing...
-<Packs/VeeDefault/Music/callMeKatla.json> matches
+<Packs/VeeDefault/Music/drFinkelfracken.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/mazeOfMayonnaise.json> exists locally - comparing...
-<Packs/VeeDefault/Music/mazeOfMayonnaise.json> matches
+<Packs/VeeDefault/Music/captainCool.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/jackRussel.json> exists locally - comparing...
-<Packs/VeeDefault/Music/jackRussel.json> matches
+<Packs/VeeDefault/Music/mazeOfMayonnaise.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/callMeKatla.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/callMeKatla.ogg> matches
+<Packs/VeeDefault/Music/callMeKatla.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/steampunkWarlord.json> exists locally - comparing...
-<Packs/VeeDefault/Music/steampunkWarlord.json> matches
+<Packs/VeeDefault/Music/mazeOfMayonnaise.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/milkyWays.json> exists locally - comparing...
-<Packs/VeeDefault/Music/milkyWays.json> matches
+<Packs/VeeDefault/Music/jackRussel.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/captainCool.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/captainCool.ogg> matches
+<Packs/VeeDefault/Music/callMeKatla.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/drFinkelfracken.ogg> exists locally - comparing...
-<Packs/VeeDefault/Music/drFinkelfracken.ogg> matches
+<Packs/VeeDefault/Music/steampunkWarlord.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Music/> exists locally - comparing...
-<Packs/VeeDefault/Music/> matches
+<Packs/VeeDefault/Music/milkyWays.json> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/utils.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/utils.lua> matches
+<Packs/VeeDefault/Music/captainCool.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/patternizerpatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/patternizerpatterns.lua> matches
+<Packs/VeeDefault/Music/drFinkelfracken.ogg> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/zen.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/zen.lua> matches
+<Packs/VeeDefault/Music/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua> matches
+<Packs/VeeDefault/Scripts/utils.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua> matches
+<Packs/VeeDefault/Scripts/patternizerpatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/zen.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/defaultLevels/> exists locally - comparing...
-<Packs/VeeDefault/Scripts/defaultLevels/> matches
+<Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/common.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/common.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/alternativepatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/alternativepatterns.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/commonpatterns.lua> exists locally - comparing...
-<Packs/VeeDefault/Scripts/commonpatterns.lua> matches
+<Packs/VeeDefault/Scripts/defaultLevels/> doesn't exist locally - must download
 
-<Packs/VeeDefault/Scripts/> exists locally - comparing...
-<Packs/VeeDefault/Scripts/> matches
+<Packs/VeeDefault/Scripts/common.lua> doesn't exist locally - must download
 
-<Packs/VeeDefault/> exists locally - comparing...
-<Packs/VeeDefault/> matches
+<Packs/VeeDefault/Scripts/alternativepatterns.lua> doesn't exist locally - must download
 
-<Packs/> exists locally - comparing...
-<Packs/> matches
+<Packs/VeeDefault/Scripts/commonpatterns.lua> doesn't exist locally - must download
 
-<Profiles/> exists locally - comparing...
-<Profiles/> matches
+<Packs/VeeDefault/Scripts/> doesn't exist locally - must download
 
-<nocosmeticscript.bat> exists locally - comparing...
-<nocosmeticscript.bat> matches
+<Packs/VeeDefault/> doesn't exist locally - must download
 
-<libstdc++-6.dll> exists locally - comparing...
-<libstdc++-6.dll> matches
+<Packs/> doesn't exist locally - must download
 
-<windowed.bat> exists locally - comparing...
-<windowed.bat> matches
+<Profiles/> doesn't exist locally - must download
 
-<libgcc_s_dw2-1.dll> exists locally - comparing...
-<libgcc_s_dw2-1.dll> matches
+<nocosmeticscript.bat> doesn't exist locally - must download
 
-<fraps.bat> exists locally - comparing...
-<fraps.bat> matches
+<libstdc++-6.dll> doesn't exist locally - must download
 
-<lua51.dll> exists locally - comparing...
-<lua51.dll> matches
+<windowed.bat> doesn't exist locally - must download
 
-<windowed_no3D.bat> exists locally - comparing...
-<windowed_no3D.bat> matches
+<libgcc_s_dw2-1.dll> doesn't exist locally - must download
 
-<sfml-graphics-2.dll> exists locally - comparing...
-<sfml-graphics-2.dll> matches
+<fraps.bat> doesn't exist locally - must download
 
-<config.json> exists locally - comparing...
-<config.json> matches
+<lua51.dll> doesn't exist locally - must download
 
-<sfml-audio-2.dll> exists locally - comparing...
-<sfml-audio-2.dll> matches
+<windowed_no3D.bat> doesn't exist locally - must download
 
-<sfml-system-2.dll> exists locally - comparing...
-<sfml-system-2.dll> matches
+<sfml-graphics-2.dll> doesn't exist locally - must download
 
-<sfml-window-2.dll> exists locally - comparing...
-<sfml-window-2.dll> matches
+<config.json> doesn't exist locally - must download
 
-<noaudio.bat> exists locally - comparing...
-<noaudio.bat> matches
+<sfml-audio-2.dll> doesn't exist locally - must download
 
-<highfps.bat> exists locally - comparing...
-<highfps.bat> matches
+<sfml-system-2.dll> doesn't exist locally - must download
 
-<sfml-network-2.dll> exists locally - comparing...
-<sfml-network-2.dll> matches
+<sfml-window-2.dll> doesn't exist locally - must download
 
+<noaudio.bat> doesn't exist locally - must download
 
+<highfps.bat> doesn't exist locally - must download
+
+<sfml-network-2.dll> doesn't exist locally - must download
+
+
+[Download] Starting...
+[Download] Downloading <SSVEntitySystem.dll>...
+[Download] <SSVEntitySystem.dll> downloaded
+Processing <SSVEntitySystem.dll>
+
+[Download] Downloading <ConfigOverrides/highfps.json>...
+Getting <Data/SSVEntitySystem.dll> from server...
+[Download] <ConfigOverrides/highfps.json> downloaded
+Processing <ConfigOverrides/highfps.json>
+
+[Download] Downloading <ConfigOverrides/nocosmeticscript.json>...
+[Download] <ConfigOverrides/nocosmeticscript.json> downloaded
+Processing <ConfigOverrides/nocosmeticscript.json>
+
+[Download] Downloading <ConfigOverrides/debug.json>...
+[Download] <ConfigOverrides/debug.json> downloaded
+Processing <ConfigOverrides/debug.json>
+
+[Download] Downloading <ConfigOverrides/fullscreen.json>...
+Getting <Data/ConfigOverrides/nocosmeticscript.json> from server...
+Getting <Data/ConfigOverrides/debug.json> from server...
+[Download] <ConfigOverrides/fullscreen.json> downloaded
+Processing <ConfigOverrides/fullscreen.json>
+
+[Download] Downloading <ConfigOverrides/fraps.json>...
+Getting <Data/ConfigOverrides/fullscreen.json> from server...
+[Download] <ConfigOverrides/fraps.json> downloaded
+Processing <ConfigOverrides/fraps.json>
+
+[Download] Downloading <ConfigOverrides/noaudio.json>...
+[Download] <ConfigOverrides/noaudio.json> downloaded
+Getting <Data/ConfigOverrides/fraps.json> from server...
+Processing <ConfigOverrides/noaudio.json>
+
+[Download] Downloading <ConfigOverrides/windowed.json>...
+[Download] <ConfigOverrides/windowed.json> downloaded
+Getting <Data/ConfigOverrides/noaudio.json> from server...
+Processing <ConfigOverrides/windowed.json>
+
+[Download] Downloading <ConfigOverrides/no3D.json>...
+[Download] <ConfigOverrides/no3D.json> downloaded
+Getting <Data/ConfigOverrides/windowed.json> from server...
+Processing <ConfigOverrides/no3D.json>
+
+[Download] Downloading <ConfigOverrides/>...
+[Download] <ConfigOverrides/> downloaded
+Getting <Data/ConfigOverrides/no3D.json> from server...
+Processing <ConfigOverrides/>
+
+[Download] Downloading <openal32.dll>...
+Getting <Data/ConfigOverrides/> from server...
+[Download] <openal32.dll> downloaded
+Processing <openal32.dll>
+
+[Download] Downloading <fullscreen.bat>...
+Getting <Data/openal32.dll> from server...
+[Download] <fullscreen.bat> downloaded
+Processing <fullscreen.bat>
+
+[Download] Downloading <lua5.1.dll>...
+Getting <Data/fullscreen.bat> from server...
+Processing <lua5.1.dll>
+[Download] <lua5.1.dll> downloaded
+Getting <Data/lua5.1.dll> from server...
+
+[Download] Downloading <libsndfile-1.dll>...
+[Download] <libsndfile-1.dll> downloaded
+Processing <libsndfile-1.dll>
+
+[Download] Downloading <fullscreen_no3D.bat>...
+Getting <Data/libsndfile-1.dll> from server...
+Processing <fullscreen_no3D.bat>
+[Download] <fullscreen_no3D.bat> downloaded
+Getting <Data/fullscreen_no3D.bat> from server...
+
+[Download] Downloading <SSVStart.dll>...
+[Download] <SSVStart.dll> downloaded
+Processing <SSVStart.dll>
+
+[Download] Downloading <SSVMenuSystem.dll>...
+Getting <Data/SSVStart.dll> from server...
+[Download] <SSVMenuSystem.dll> downloaded
+Processing <SSVMenuSystem.dll>
+
+[Download] Downloading <_DOCUMENTATION/README.html>...
+Getting <Data/SSVMenuSystem.dll> from server...
+[Download] <_DOCUMENTATION/README.html> downloaded
+Processing <_DOCUMENTATION/README.html>
+
+[Download] Downloading <_DOCUMENTATION/README_SOUNDS.html>...
+[Download] <_DOCUMENTATION/README_SOUNDS.html> downloaded
+Processing <_DOCUMENTATION/README_SOUNDS.html>
+
+[Download] Downloading <_DOCUMENTATION/README_EVENTS.html>...
+[Download] <_DOCUMENTATION/README_EVENTS.html> downloaded
+Getting <Data/_DOCUMENTATION/README_SOUNDS.html> from server...
+Processing <_DOCUMENTATION/README_EVENTS.html>
+
+Getting <Data/ConfigOverrides/highfps.json> from server...
+[Download] Downloading <_DOCUMENTATION/README_ONLINE.html>...
+Getting <Data/_DOCUMENTATION/README_EVENTS.html> from server...
+[Download] <_DOCUMENTATION/README_ONLINE.html> downloaded
+Getting <Data/_DOCUMENTATION/README.html> from server...
+Processing <_DOCUMENTATION/README_ONLINE.html>
+
+[Download] Downloading <_DOCUMENTATION/README_CONFIGOVERRIDES.html>...
+[Download] <_DOCUMENTATION/README_CONFIGOVERRIDES.html> downloaded
+Getting <Data/_DOCUMENTATION/README_ONLINE.html> from server...
+Processing <_DOCUMENTATION/README_CONFIGOVERRIDES.html>
+
+[Download] Downloading <_DOCUMENTATION/README_LEVELS.html>...
+Getting <Data/_DOCUMENTATION/README_CONFIGOVERRIDES.html> from server...
+[Download] <_DOCUMENTATION/README_LEVELS.html> downloaded
+Processing <_DOCUMENTATION/README_LEVELS.html>
+
+[Download] Downloading <_DOCUMENTATION/README_STYLES.html>...
+[Download] <_DOCUMENTATION/README_STYLES.html> downloaded
+Getting <Data/_DOCUMENTATION/README_LEVELS.html> from server...
+Processing <_DOCUMENTATION/README_STYLES.html>
+
+[Download] Downloading <_DOCUMENTATION/README_SCRIPTING.html>...
+Getting <Data/_DOCUMENTATION/README_STYLES.html> from server...
+[Download] <_DOCUMENTATION/README_SCRIPTING.html> downloaded
+Processing <_DOCUMENTATION/README_SCRIPTING.html>
+
+[Download] Downloading <_DOCUMENTATION/README_MUSIC.html>...
+[Download] <_DOCUMENTATION/README_MUSIC.html> downloaded
+Getting <Data/_DOCUMENTATION/README_SCRIPTING.html> from server...
+Processing <_DOCUMENTATION/README_MUSIC.html>
+
+[Download] Downloading <_DOCUMENTATION/>...
+Getting <Data/_DOCUMENTATION/README_MUSIC.html> from server...
+[Download] <_DOCUMENTATION/> downloaded
+Processing <_DOCUMENTATION/>
+
+[Download] Downloading <debug.bat>...
+[Download] <debug.bat> downloaded
+Getting <Data/_DOCUMENTATION/> from server...
+Processing <debug.bat>
+
+[Download] Downloading <SSVOpenHexagon.exe>...
+Getting <Data/debug.bat> from server...
+[Download] <SSVOpenHexagon.exe> downloaded
+Processing <SSVOpenHexagon.exe>
+
+[Download] Downloading <Assets/imagine.ttf>...
+Getting <Data/SSVOpenHexagon.exe> from server...
+[Download] <Assets/imagine.ttf> downloaded
+Processing <Assets/imagine.ttf>
+
+[Download] Downloading <Assets/levelUp.ogg>...
+[Download] <Assets/levelUp.ogg> downloaded
+
+Processing <Assets/levelUp.ogg>
+[Download] Downloading <Assets/gameOver.ogg>...
+[Download] <Assets/gameOver.ogg> downloaded
+Getting <Data/Assets/imagine.ttf> from server...
+Getting <Data/Assets/levelUp.ogg> from server...
+
+Processing <Assets/gameOver.ogg>
+[Download] Downloading <Assets/creditsBar1.png>...
+[Download] <Assets/creditsBar1.png> downloaded
+Getting <Data/Assets/gameOver.ogg> from server...
+Processing <Assets/creditsBar1.png>
+
+[Download] Downloading <Assets/bottomBar.png>...
+Getting <Data/Assets/creditsBar1.png> from server...
+[Download] <Assets/bottomBar.png> downloaded
+Processing <Assets/bottomBar.png>
+
+[Download] Downloading <Assets/openHexagon.ogg>...
+[Download] <Assets/openHexagon.ogg> downloaded
+Getting <Data/Assets/bottomBar.png> from server...
+Processing <Assets/openHexagon.ogg>
+
+[Download] Downloading <Assets/creditsBar2.png>...
+Getting <Data/Assets/openHexagon.ogg> from server...
+[Download] <Assets/creditsBar2.png> downloaded
+Processing <Assets/creditsBar2.png>
+
+[Download] Downloading <Assets/titleBar.png>...
+Getting <Data/Assets/creditsBar2.png> from server...
+[Download] <Assets/titleBar.png> downloaded
+Processing <Assets/titleBar.png>
+
+[Download] Downloading <Assets/go.ogg>...
+[Download] <Assets/go.ogg> downloaded
+Getting <Data/Assets/titleBar.png> from server...
+Processing <Assets/go.ogg>
+
+[Download] Downloading <Assets/death.ogg>...
+Getting <Data/Assets/go.ogg> from server...
+[Download] <Assets/death.ogg> downloaded
+Processing <Assets/death.ogg>
+
+[Download] Downloading <Assets/beep.ogg>...
+[Download] <Assets/beep.ogg> downloaded
+Getting <Data/Assets/death.ogg> from server...
+Processing <Assets/beep.ogg>
+
+[Download] Downloading <Assets/>...
+Getting <Data/Assets/beep.ogg> from server...
+Processing <Assets/>
+[Download] <Assets/> downloaded
+
+Getting <Data/Assets/> from server...
+[Download] Downloading <SSVLuaWrapper.dll>...
+[Download] <SSVLuaWrapper.dll> downloaded
+Processing <SSVLuaWrapper.dll>
+
+[Download] Downloading <Packs/VeeEndurance/Levels/commando.json>...
+Getting <Data/SSVLuaWrapper.dll> from server...
+[Download] <Packs/VeeEndurance/Levels/commando.json> downloaded
+Processing <Packs/VeeEndurance/Levels/commando.json>
+
+[Download] Downloading <Packs/VeeEndurance/Levels/labyrinth.json>...
+[Download] <Packs/VeeEndurance/Levels/labyrinth.json> downloaded
+Processing <Packs/VeeEndurance/Levels/labyrinth.json>
+
+[Download] Downloading <Packs/VeeEndurance/Levels/>...
+[Download] <Packs/VeeEndurance/Levels/> downloaded
+Processing <Packs/VeeEndurance/Levels/>
+
+[Download] Downloading <Packs/VeeEndurance/pack.json>...
+[Download] <Packs/VeeEndurance/pack.json> downloaded
+
+Processing <Packs/VeeEndurance/pack.json>
+[Download] Downloading <Packs/VeeEndurance/Styles/wordless.json>...
+[Download] <Packs/VeeEndurance/Styles/wordless.json> downloaded
+Getting <Data/Packs/VeeEndurance/pack.json> from server...
+Processing <Packs/VeeEndurance/Styles/wordless.json>
+
+[Download] Downloading <Packs/VeeEndurance/Styles/wordlessinverse.json>...
+[Download] <Packs/VeeEndurance/Styles/wordlessinverse.json> downloaded
+Processing <Packs/VeeEndurance/Styles/wordlessinverse.json>
+
+[Download] Downloading <Packs/VeeEndurance/Styles/>...
+[Download] <Packs/VeeEndurance/Styles/> downloaded
+Getting <Data/Packs/VeeEndurance/Styles/wordlessinverse.json> from server...
+Processing <Packs/VeeEndurance/Styles/>
+
+[Download] Downloading <Packs/VeeEndurance/Events/>...
+[Download] <Packs/VeeEndurance/Events/> downloaded
+Getting <Data/Packs/VeeEndurance/Styles/> from server...
+Processing <Packs/VeeEndurance/Events/>
+
+[Download] Downloading <Packs/VeeEndurance/Sounds/test.ogg>...
+[Download] <Packs/VeeEndurance/Sounds/test.ogg> downloaded
+
+Processing <Packs/VeeEndurance/Sounds/test.ogg>
+[Download] Downloading <Packs/VeeEndurance/Sounds/>...
+[Download] <Packs/VeeEndurance/Sounds/> downloaded
+Processing <Packs/VeeEndurance/Sounds/>
+
+[Download] Downloading <Packs/VeeEndurance/Music/commandoSteve.json>...
+[Download] <Packs/VeeEndurance/Music/commandoSteve.json> downloaded
+
+Getting <Data/Packs/VeeEndurance/Sounds/> from server...
+Processing <Packs/VeeEndurance/Music/commandoSteve.json>
+[Download] Downloading <Packs/VeeEndurance/Music/commandoSteve.ogg>...
+[Download] <Packs/VeeEndurance/Music/commandoSteve.ogg> downloaded
+Processing <Packs/VeeEndurance/Music/commandoSteve.ogg>
+
+[Download] Downloading <Packs/VeeEndurance/Music/>...
+[Download] <Packs/VeeEndurance/Music/> downloaded
+Getting <Data/Packs/VeeEndurance/Music/commandoSteve.ogg> from server...
+Processing <Packs/VeeEndurance/Music/>
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/utils.lua>...
+[Download] <Packs/VeeEndurance/Scripts/utils.lua> downloaded
+Getting <Data/Packs/VeeEndurance/Music/> from server...
+Processing <Packs/VeeEndurance/Scripts/utils.lua>
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/patternizerpatterns.lua>...
+[Download] <Packs/VeeEndurance/Scripts/patternizerpatterns.lua> downloaded
+Processing <Packs/VeeEndurance/Scripts/patternizerpatterns.lua>
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/defaultLevels/commando.lua>...
+[Download] <Packs/VeeEndurance/Scripts/defaultLevels/commando.lua> downloaded
+Getting <Data/Packs/VeeEndurance/Scripts/patternizerpatterns.lua> from server...
+Processing <Packs/VeeEndurance/Scripts/defaultLevels/commando.lua>
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua>...
+[Download] <Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua> downloaded
+
+Processing <Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua>
+[Download] Downloading <Packs/VeeEndurance/Scripts/defaultLevels/>...
+[Download] <Packs/VeeEndurance/Scripts/defaultLevels/> downloaded
+Processing <Packs/VeeEndurance/Scripts/defaultLevels/>
+Getting <Data/Packs/VeeEndurance/Scripts/defaultLevels/labyrinth.lua> from server...
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/common.lua>...
+Getting <Data/Packs/VeeEndurance/Scripts/defaultLevels/> from server...
+[Download] <Packs/VeeEndurance/Scripts/common.lua> downloaded
+Processing <Packs/VeeEndurance/Scripts/common.lua>
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/alternativepatterns.lua>...
+[Download] <Packs/VeeEndurance/Scripts/alternativepatterns.lua> downloaded
+Getting <Data/Packs/VeeEndurance/Scripts/common.lua> from server...
+Processing <Packs/VeeEndurance/Scripts/alternativepatterns.lua>
+
+[Download] Downloading <Packs/VeeEndurance/Scripts/commonpatterns.lua>...
+[Download] <Packs/VeeEndurance/Scripts/commonpatterns.lua> downloaded
+Processing <Packs/VeeEndurance/Scripts/commonpatterns.lua>
+
+Getting <Data/Packs/VeeEndurance/Scripts/alternativepatterns.lua> from server...
+[Download] Downloading <Packs/VeeEndurance/Scripts/>...
+Getting <Data/Packs/VeeEndurance/Scripts/commonpatterns.lua> from server...
+[Download] <Packs/VeeEndurance/Scripts/> downloaded
+Processing <Packs/VeeEndurance/Scripts/>
+
+[Download] Downloading <Packs/VeeEndurance/>...
+[Download] <Packs/VeeEndurance/> downloaded
+Processing <Packs/VeeEndurance/>
+Getting <Data/Packs/VeeEndurance/Scripts/> from server...
+
+[Download] Downloading <Packs/VeeDefault/Levels/pi.json>...
+Getting <Data/Packs/VeeEndurance/> from server...
+[Download] <Packs/VeeDefault/Levels/pi.json> downloaded
+Processing <Packs/VeeDefault/Levels/pi.json>
+
+[Download] Downloading <Packs/VeeDefault/Levels/normal.json>...
+[Download] <Packs/VeeDefault/Levels/normal.json> downloaded
+Processing <Packs/VeeDefault/Levels/normal.json>
+
+[Download] Downloading <Packs/VeeDefault/Levels/lunatic.json>...
+[Download] <Packs/VeeDefault/Levels/lunatic.json> downloaded
+Processing <Packs/VeeDefault/Levels/lunatic.json>
+
+[Download] Downloading <Packs/VeeDefault/Levels/tutorial2.json>...
+[Download] <Packs/VeeDefault/Levels/tutorial2.json> downloaded
+Getting <Data/Packs/VeeDefault/Levels/lunatic.json> from server...
+Processing <Packs/VeeDefault/Levels/tutorial2.json>
+
+[Download] Downloading <Packs/VeeDefault/Levels/tutorial.json>...
+Getting <Data/Packs/VeeEndurance/Levels/commando.json> from server...
+[Download] <Packs/VeeDefault/Levels/tutorial.json> downloaded
+Getting <Data/Packs/VeeDefault/Levels/tutorial2.json> from server...
+Getting <Data/Packs/VeeEndurance/Styles/wordless.json> from server...
+Getting <Data/Packs/VeeEndurance/Scripts/utils.lua> from server...
+Processing <Packs/VeeDefault/Levels/tutorial.json>
+
+Getting <Data/Packs/VeeEndurance/Events/> from server...
+Getting <Data/Packs/VeeEndurance/Levels/labyrinth.json> from server...
+Getting <Data/Packs/VeeDefault/Levels/normal.json> from server...
+Getting <Data/Packs/VeeEndurance/Levels/> from server...
+Getting <Data/Packs/VeeEndurance/Music/commandoSteve.json> from server...
+Getting <Data/Packs/VeeDefault/Levels/pi.json> from server...
+Getting <Data/Packs/VeeEndurance/Scripts/defaultLevels/commando.lua> from server...
+Getting <Data/Packs/VeeEndurance/Sounds/test.ogg> from server...
+[Download] Downloading <Packs/VeeDefault/Levels/goldenratio.json>...
+Getting <Data/Packs/VeeDefault/Levels/tutorial.json> from server...
+Processing <Packs/VeeDefault/Levels/goldenratio.json>
+[Download] <Packs/VeeDefault/Levels/goldenratio.json> downloaded
+
+[Download] Downloading <Packs/VeeDefault/Levels/easy.json>...
+Getting <Data/Packs/VeeDefault/Levels/goldenratio.json> from server...
+[Download] <Packs/VeeDefault/Levels/easy.json> downloaded
+Processing <Packs/VeeDefault/Levels/easy.json>
+
+[Download] Downloading <Packs/VeeDefault/Levels/hard.json>...
+[Download] <Packs/VeeDefault/Levels/hard.json> downloaded
+Getting <Data/Packs/VeeDefault/Levels/easy.json> from server...
+Processing <Packs/VeeDefault/Levels/hard.json>
+
+[Download] Downloading <Packs/VeeDefault/Levels/extra.json>...
+[Download] <Packs/VeeDefault/Levels/extra.json> downloaded
+
+Processing <Packs/VeeDefault/Levels/extra.json>
+Getting <Data/Packs/VeeDefault/Levels/hard.json> from server...
+[Download] Downloading <Packs/VeeDefault/Levels/>...
+[Download] <Packs/VeeDefault/Levels/> downloaded
+Getting <Data/Packs/VeeDefault/Levels/extra.json> from server...
+Processing <Packs/VeeDefault/Levels/>
+
+[Download] Downloading <Packs/VeeDefault/pack.json>...
+[Download] <Packs/VeeDefault/pack.json> downloaded
+Getting <Data/Packs/VeeDefault/Levels/> from server...
+Processing <Packs/VeeDefault/pack.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/danger.json>...
+[Download] <Packs/VeeDefault/Styles/danger.json> downloaded
+Getting <Data/Packs/VeeDefault/pack.json> from server...
+Processing <Packs/VeeDefault/Styles/danger.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/dangertest.json>...
+[Download] <Packs/VeeDefault/Styles/dangertest.json> downloaded
+Processing <Packs/VeeDefault/Styles/dangertest.json>
+
+Getting <Data/Packs/VeeDefault/Styles/danger.json> from server...
+[Download] Downloading <Packs/VeeDefault/Styles/pistyle.json>...
+Getting <Data/Packs/VeeDefault/Styles/dangertest.json> from server...
+[Download] <Packs/VeeDefault/Styles/pistyle.json> downloaded
+Processing <Packs/VeeDefault/Styles/pistyle.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/tutorial2.json>...
+[Download] <Packs/VeeDefault/Styles/tutorial2.json> downloaded
+Getting <Data/Packs/VeeDefault/Styles/pistyle.json> from server...
+Processing <Packs/VeeDefault/Styles/tutorial2.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/dark.json>...
+[Download] <Packs/VeeDefault/Styles/dark.json> downloaded
+Getting <Data/Packs/VeeDefault/Styles/tutorial2.json> from server...
+Processing <Packs/VeeDefault/Styles/dark.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/tutorial.json>...
+[Download] <Packs/VeeDefault/Styles/tutorial.json> downloaded
+
+Processing <Packs/VeeDefault/Styles/tutorial.json>
+Getting <Data/Packs/VeeDefault/Styles/dark.json> from server...
+[Download] Downloading <Packs/VeeDefault/Styles/gray.json>...
+[Download] <Packs/VeeDefault/Styles/gray.json> downloaded
+Getting <Data/Packs/VeeDefault/Styles/tutorial.json> from server...
+Processing <Packs/VeeDefault/Styles/gray.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/goldenratio.json>...
+[Download] <Packs/VeeDefault/Styles/goldenratio.json> downloaded
+Getting <Data/Packs/VeeDefault/Styles/gray.json> from server...
+Processing <Packs/VeeDefault/Styles/goldenratio.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/toxic.json>...
+[Download] <Packs/VeeDefault/Styles/toxic.json> downloaded
+Getting <Data/Packs/VeeDefault/Styles/goldenratio.json> from server...
+Processing <Packs/VeeDefault/Styles/toxic.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/light.json>...
+[Download] <Packs/VeeDefault/Styles/light.json> downloaded
+Getting <Data/Packs/VeeDefault/Styles/toxic.json> from server...
+Processing <Packs/VeeDefault/Styles/light.json>
+
+[Download] Downloading <Packs/VeeDefault/Styles/>...
+[Download] <Packs/VeeDefault/Styles/> downloaded
+Getting <Data/Packs/VeeDefault/Styles/light.json> from server...
+Processing <Packs/VeeDefault/Styles/>
+
+[Download] Downloading <Packs/VeeDefault/Events/>...
+[Download] <Packs/VeeDefault/Events/> downloaded
+Getting <Data/Packs/VeeDefault/Styles/> from server...
+Processing <Packs/VeeDefault/Events/>
+
+[Download] Downloading <Packs/VeeDefault/Music/milkyWays.ogg>...
+[Download] <Packs/VeeDefault/Music/milkyWays.ogg> downloaded
+
+Processing <Packs/VeeDefault/Music/milkyWays.ogg>
+[Download] Downloading <Packs/VeeDefault/Music/steampunkWarlord.ogg>...
+[Download] <Packs/VeeDefault/Music/steampunkWarlord.ogg> downloaded
+Processing <Packs/VeeDefault/Music/steampunkWarlord.ogg>
+
+Getting <Data/Packs/VeeDefault/Events/> from server...
+[Download] Downloading <Packs/VeeDefault/Music/starshipShowdown.json>...
+Getting <Data/Packs/VeeDefault/Music/milkyWays.ogg> from server...
+Getting <Data/Packs/VeeDefault/Music/steampunkWarlord.ogg> from server...
+[Download] <Packs/VeeDefault/Music/starshipShowdown.json> downloaded
+Processing <Packs/VeeDefault/Music/starshipShowdown.json>
+
+[Download] Downloading <Packs/VeeDefault/Music/starshipShowdown.ogg>...
+[Download] <Packs/VeeDefault/Music/starshipShowdown.ogg> downloaded
+Getting <Data/Packs/VeeDefault/Music/starshipShowdown.json> from server...
+Processing <Packs/VeeDefault/Music/starshipShowdown.ogg>
+
+[Download] Downloading <Packs/VeeDefault/Music/jackRussel.ogg>...
+[Download] <Packs/VeeDefault/Music/jackRussel.ogg> downloaded
+Getting <Data/Packs/VeeDefault/Music/starshipShowdown.ogg> from server...
+Processing <Packs/VeeDefault/Music/jackRussel.ogg>
+
+[Download] Downloading <Packs/VeeDefault/Music/drFinkelfracken.json>...
+[Download] <Packs/VeeDefault/Music/drFinkelfracken.json> downloaded
+
+Processing <Packs/VeeDefault/Music/drFinkelfracken.json>
+Getting <Data/Packs/VeeDefault/Music/jackRussel.ogg> from server...
+[Download] Downloading <Packs/VeeDefault/Music/captainCool.json>...
+Getting <Data/Packs/VeeDefault/Music/drFinkelfracken.json> from server...
+[Download] <Packs/VeeDefault/Music/captainCool.json> downloaded
+Processing <Packs/VeeDefault/Music/captainCool.json>
+
+[Download] Downloading <Packs/VeeDefault/Music/mazeOfMayonnaise.ogg>...
+[Download] <Packs/VeeDefault/Music/mazeOfMayonnaise.ogg> downloaded
+Processing <Packs/VeeDefault/Music/mazeOfMayonnaise.ogg>
+Getting <Data/Packs/VeeDefault/Music/captainCool.json> from server...
+
+[Download] Downloading <Packs/VeeDefault/Music/callMeKatla.json>...
+Getting <Data/Packs/VeeDefault/Music/mazeOfMayonnaise.ogg> from server...
+[Download] <Packs/VeeDefault/Music/callMeKatla.json> downloaded
+Processing <Packs/VeeDefault/Music/callMeKatla.json>
+
+[Download] Downloading <Packs/VeeDefault/Music/mazeOfMayonnaise.json>...
+[Download] <Packs/VeeDefault/Music/mazeOfMayonnaise.json> downloaded
+
+Processing <Packs/VeeDefault/Music/mazeOfMayonnaise.json>
+Getting <Data/Packs/VeeDefault/Music/callMeKatla.json> from server...
+[Download] Downloading <Packs/VeeDefault/Music/jackRussel.json>...
+Getting <Data/Packs/VeeDefault/Music/mazeOfMayonnaise.json> from server...
+[Download] <Packs/VeeDefault/Music/jackRussel.json> downloaded
+Processing <Packs/VeeDefault/Music/jackRussel.json>
+
+[Download] Downloading <Packs/VeeDefault/Music/callMeKatla.ogg>...
+[Download] <Packs/VeeDefault/Music/callMeKatla.ogg> downloaded
+Getting <Data/Packs/VeeDefault/Music/jackRussel.json> from server...
+Processing <Packs/VeeDefault/Music/callMeKatla.ogg>
+
+[Download] Downloading <Packs/VeeDefault/Music/steampunkWarlord.json>...
+[Download] <Packs/VeeDefault/Music/steampunkWarlord.json> downloaded
+Getting <Data/Packs/VeeDefault/Music/callMeKatla.ogg> from server...
+Processing <Packs/VeeDefault/Music/steampunkWarlord.json>
+
+[Download] Downloading <Packs/VeeDefault/Music/milkyWays.json>...
+[Download] <Packs/VeeDefault/Music/milkyWays.json> downloaded
+Getting <Data/Packs/VeeDefault/Music/steampunkWarlord.json> from server...
+Processing <Packs/VeeDefault/Music/milkyWays.json>
+
+[Download] Downloading <Packs/VeeDefault/Music/captainCool.ogg>...
+[Download] <Packs/VeeDefault/Music/captainCool.ogg> downloaded
+Getting <Data/Packs/VeeDefault/Music/milkyWays.json> from server...
+
+Processing <Packs/VeeDefault/Music/captainCool.ogg>
+[Download] Downloading <Packs/VeeDefault/Music/drFinkelfracken.ogg>...
+[Download] <Packs/VeeDefault/Music/drFinkelfracken.ogg> downloaded
+Getting <Data/Packs/VeeDefault/Music/captainCool.ogg> from server...
+Processing <Packs/VeeDefault/Music/drFinkelfracken.ogg>
+
+[Download] Downloading <Packs/VeeDefault/Music/>...
+[Download] <Packs/VeeDefault/Music/> downloaded
+Getting <Data/Packs/VeeDefault/Music/drFinkelfracken.ogg> from server...
+Processing <Packs/VeeDefault/Music/>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/utils.lua>...
+[Download] <Packs/VeeDefault/Scripts/utils.lua> downloaded
+
+Processing <Packs/VeeDefault/Scripts/utils.lua>
+Getting <Data/Packs/VeeDefault/Music/> from server...
+[Download] Downloading <Packs/VeeDefault/Scripts/patternizerpatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/patternizerpatterns.lua> downloaded
+Processing <Packs/VeeDefault/Scripts/patternizerpatterns.lua>
+
+Getting <Data/Packs/VeeDefault/Scripts/utils.lua> from server...
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/zen.lua>...
+Getting <Data/Packs/VeeDefault/Scripts/patternizerpatterns.lua> from server...
+Processing <Packs/VeeDefault/Scripts/defaultLevels/zen.lua>
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/zen.lua> downloaded
+
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua> downloaded
+Processing <Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua>
+
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/zen.lua> from server...
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua>...
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/normalpatterns.lua> from server...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua> downloaded
+Processing <Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua> downloaded
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/easypatterns.lua> from server...
+Processing <Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua> downloaded
+
+Processing <Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua>
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/hardpatterns.lua> from server...
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua>...
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/pipatterns.lua> from server...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua> downloaded
+Processing <Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua> downloaded
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/tutorial.lua> from server...
+Processing <Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/defaultLevels/>...
+[Download] <Packs/VeeDefault/Scripts/defaultLevels/> downloaded
+Processing <Packs/VeeDefault/Scripts/defaultLevels/>
+
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/lunaticpatterns.lua> from server...
+[Download] Downloading <Packs/VeeDefault/Scripts/common.lua>...
+Getting <Data/Packs/VeeDefault/Scripts/defaultLevels/> from server...
+[Download] <Packs/VeeDefault/Scripts/common.lua> downloaded
+Processing <Packs/VeeDefault/Scripts/common.lua>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/alternativepatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/alternativepatterns.lua> downloaded
+Getting <Data/Packs/VeeDefault/Scripts/common.lua> from server...
+Processing <Packs/VeeDefault/Scripts/alternativepatterns.lua>
+
+[Download] Downloading <Packs/VeeDefault/Scripts/commonpatterns.lua>...
+[Download] <Packs/VeeDefault/Scripts/commonpatterns.lua> downloaded
+Getting <Data/Packs/VeeDefault/Scripts/alternativepatterns.lua> from server...
+
+Processing <Packs/VeeDefault/Scripts/commonpatterns.lua>
+[Download] Downloading <Packs/VeeDefault/Scripts/>...
+[Download] <Packs/VeeDefault/Scripts/> downloaded
+Getting <Data/Packs/VeeDefault/Scripts/commonpatterns.lua> from server...
+Processing <Packs/VeeDefault/Scripts/>
+
+[Download] Downloading <Packs/VeeDefault/>...
+[Download] <Packs/VeeDefault/> downloaded
+Getting <Data/Packs/VeeDefault/Scripts/> from server...
+Processing <Packs/VeeDefault/>
+
+[Download] Downloading <Packs/>...
+[Download] <Packs/> downloaded
+Processing <Packs/>
+Getting <Data/Packs/VeeDefault/> from server...
+
+[Download] Downloading <Profiles/>...
+Getting <Data/Packs/> from server...
+[Download] <Profiles/> downloaded
+Processing <Profiles/>
+
+[Download] Downloading <nocosmeticscript.bat>...
+[Download] <nocosmeticscript.bat> downloaded
+Processing <nocosmeticscript.bat>
+
+Getting <Data/Profiles/> from server...
+[Download] Downloading <libstdc++-6.dll>...
+Getting <Data/nocosmeticscript.bat> from server...
+[Download] <libstdc++-6.dll> downloaded
+Processing <libstdc++-6.dll>
+
+[Download] Downloading <windowed.bat>...
+Getting <Data/libstdc++-6.dll> from server...
+[Download] <windowed.bat> downloaded
+Processing <windowed.bat>
+
+[Download] Downloading <libgcc_s_dw2-1.dll>...
+Getting <Data/windowed.bat> from server...
+Processing <libgcc_s_dw2-1.dll>
+[Download] <libgcc_s_dw2-1.dll> downloaded
+
+Getting <Data/libgcc_s_dw2-1.dll> from server...
+[Download] Downloading <fraps.bat>...
+[Download] <fraps.bat> downloaded
+Processing <fraps.bat>
+
+[Download] Downloading <lua51.dll>...
+Getting <Data/fraps.bat> from server...
+[Download] <lua51.dll> downloaded
+Processing <lua51.dll>
+
+[Download] Downloading <windowed_no3D.bat>...
+Getting <Data/lua51.dll> from server...
+[Download] <windowed_no3D.bat> downloaded
+Processing <windowed_no3D.bat>
+
+[Download] Downloading <sfml-graphics-2.dll>...
+Getting <Data/windowed_no3D.bat> from server...
+[Download] <sfml-graphics-2.dll> downloaded
+Processing <sfml-graphics-2.dll>
+
+[Download] Downloading <config.json>...
+Getting <Data/sfml-graphics-2.dll> from server...
+Processing <config.json>
+[Download] <config.json> downloaded
+Getting <Data/config.json> from server...
+
+[Download] Downloading <sfml-audio-2.dll>...
+[Download] <sfml-audio-2.dll> downloaded
+Processing <sfml-audio-2.dll>
+
+[Download] Downloading <sfml-system-2.dll>...
+Getting <Data/sfml-audio-2.dll> from server...
+[Download] <sfml-system-2.dll> downloaded
+Processing <sfml-system-2.dll>
+
+[Download] Downloading <sfml-window-2.dll>...
+Getting <Data/sfml-system-2.dll> from server...
+[Download] <sfml-window-2.dll> downloaded
+Processing <sfml-window-2.dll>
+
+[Download] Downloading <noaudio.bat>...
+Getting <Data/sfml-window-2.dll> from server...
+Processing <noaudio.bat>
+[Download] <noaudio.bat> downloaded
+
+Getting <Data/noaudio.bat> from server...
+[Download] Downloading <highfps.bat>...
+[Download] <highfps.bat> downloaded
+Processing <highfps.bat>
+
+[Download] Downloading <sfml-network-2.dll>...
+Getting <Data/highfps.bat> from server...
+[Download] <sfml-network-2.dll> downloaded
+Processing <sfml-network-2.dll>
+
+Getting <Data/sfml-network-2.dll> from server...
 Finished

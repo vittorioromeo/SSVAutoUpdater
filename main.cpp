@@ -3,13 +3,13 @@
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
 #include <string>
-#include <SSVUtilsJson.h>
+#include <SSVUtilsJson/SSVUtilsJson.h>
 #include "AutoUpdater.h"
 
 using namespace std;
 using namespace ssvau;
 using namespace ssvu;
-using namespace ssvu::UtilsJson;
+using namespace ssvuj;
 
 int main()
 {
