@@ -7,7 +7,7 @@
 
 #include <string>
 #include <SFML/Network.hpp>
-#include <SSVStart.h>
+#include <SSVStart/SSVStart.h>
 #include <json/json.h>
 
 namespace ssvau

@@ -62,11 +62,11 @@
     </Configuration>
     <Configuration Name="Release" CompilerType="nuwen" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-s;-O3;-Wextra;-pedantic;-W;-Wall;-std=c++11" C_Options="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
-        <IncludePath Value="../SSVUtils/include"/>
-        <IncludePath Value="../SSVUtilsJson/include"/>
-        <IncludePath Value="../SSVStart"/>
-        <IncludePath Value="../SFML/include"/>
-        <IncludePath Value="../jsoncpp/include"/>
+        <IncludePath Value="../SSVUtils/include/"/>
+        <IncludePath Value="../SSVUtilsJson/include/"/>
+        <IncludePath Value="../SSVStart/include/"/>
+        <IncludePath Value="../SFML/include/"/>
+        <IncludePath Value="../jsoncpp/include/"/>
       </Compiler>
       <Linker Options="-O2" Required="yes">
         <LibraryPath Value="../SSVUtils/_RELEASE"/>
