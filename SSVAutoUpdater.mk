@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=vittorio.romeo
-Date                   :=22/03/2013
+Date                   :=24/03/2013
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -41,9 +41,9 @@ LinkOptions            :=  -O2
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)../SSVUtils/include/ $(IncludeSwitch)../SSVUtilsJson/include/ $(IncludeSwitch)../SSVStart/include/ $(IncludeSwitch)../SFML/include/ $(IncludeSwitch)../jsoncpp/include/ 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)SSVUtils $(LibrarySwitch)SSVUtilsJson $(LibrarySwitch)SSVStart $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-network $(LibrarySwitch)json_mingw_libmt 
-ArLibs                 :=  "SSVUtils" "SSVUtilsJson" "SSVStart" "sfml-system" "sfml-network" "json_mingw_libmt" 
-LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)../SSVUtils/_RELEASE $(LibraryPathSwitch)../SSVUtilsJson/_RELEASE $(LibraryPathSwitch)../SSVStart/_RELEASE $(LibraryPathSwitch)../SSVEntitySystem/_RELEASE $(LibraryPathSwitch)../SSVLuaWrapper/_RELEASE $(LibraryPathSwitch)../SSVSCollision/_RELEASE $(LibraryPathSwitch)../SSVMenuSystem/_RELEASE $(LibraryPathSwitch)D:/Vee/Software/GitHub/OHWorkspace/SFML/build2/lib $(LibraryPathSwitch)D:/Vee/Software/GitHub/OHWorkspace/jsoncpp/libs/mingw $(LibraryPathSwitch)c:/lua 
+Libs                   := $(LibrarySwitch)SSVUtils-s $(LibrarySwitch)SSVUtilsJson-s $(LibrarySwitch)SSVStart-s $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-network $(LibrarySwitch)json_mingw_libmt 
+ArLibs                 :=  "SSVUtils-s" "SSVUtilsJson-s" "SSVStart-s" "sfml-system" "sfml-network" "json_mingw_libmt" 
+LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)../SSVUtils/lib/ $(LibraryPathSwitch)../SSVUtilsJson/lib/ $(LibraryPathSwitch)../SSVStart/lib/ $(LibraryPathSwitch)../SSVEntitySystem/lib/ $(LibraryPathSwitch)../SSVLuaWrapper/lib/ $(LibraryPathSwitch)../SSVSCollision/lib/ $(LibraryPathSwitch)../SSVMenuSystem/lib/ $(LibraryPathSwitch)../SFML/build2/lib $(LibraryPathSwitch)../jsoncpp/libs/mingw $(LibraryPathSwitch)../lua 
 
 ##
 ## Common variables
@@ -64,6 +64,8 @@ UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXWIN:=C:\wxWidgets-2.9.4
 WXCFG:=gcc_dll\mswu
 Objects0=$(IntermediateDirectory)/main$(ObjectSuffix) $(IntermediateDirectory)/AutoUpdater$(ObjectSuffix) $(IntermediateDirectory)/Utils_Utils$(ObjectSuffix) 
+
+
 
 Objects=$(Objects0) 
 

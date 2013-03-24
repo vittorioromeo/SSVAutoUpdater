@@ -69,19 +69,19 @@
         <IncludePath Value="../jsoncpp/include/"/>
       </Compiler>
       <Linker Options="-O2" Required="yes">
-        <LibraryPath Value="../SSVUtils/_RELEASE"/>
-        <LibraryPath Value="../SSVUtilsJson/_RELEASE"/>
-        <LibraryPath Value="../SSVStart/_RELEASE"/>
-        <LibraryPath Value="../SSVEntitySystem/_RELEASE"/>
-        <LibraryPath Value="../SSVLuaWrapper/_RELEASE"/>
-        <LibraryPath Value="../SSVSCollision/_RELEASE"/>
-        <LibraryPath Value="../SSVMenuSystem/_RELEASE"/>
-        <LibraryPath Value="D:/Vee/Software/GitHub/OHWorkspace/SFML/build2/lib"/>
-        <LibraryPath Value="D:/Vee/Software/GitHub/OHWorkspace/jsoncpp/libs/mingw"/>
-        <LibraryPath Value="c:/lua"/>
-        <Library Value="SSVUtils"/>
-        <Library Value="SSVUtilsJson"/>
-        <Library Value="SSVStart"/>
+        <LibraryPath Value="../SSVUtils/lib/"/>
+        <LibraryPath Value="../SSVUtilsJson/lib/"/>
+        <LibraryPath Value="../SSVStart/lib/"/>
+        <LibraryPath Value="../SSVEntitySystem/lib/"/>
+        <LibraryPath Value="../SSVLuaWrapper/lib/"/>
+        <LibraryPath Value="../SSVSCollision/lib/"/>
+        <LibraryPath Value="../SSVMenuSystem/lib/"/>
+        <LibraryPath Value="../SFML/build2/lib"/>
+        <LibraryPath Value="../jsoncpp/libs/mingw"/>
+        <LibraryPath Value="../lua"/>
+        <Library Value="SSVUtils-s"/>
+        <Library Value="SSVUtilsJson-s"/>
+        <Library Value="SSVStart-s"/>
         <Library Value="sfml-system"/>
         <Library Value="sfml-network"/>
         <Library Value="json_mingw_libmt"/>
