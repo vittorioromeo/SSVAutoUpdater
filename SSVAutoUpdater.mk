@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=vittorio.romeo
-Date                   :=24/03/2013
+Date                   :=29/03/2013
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -37,13 +37,13 @@ PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := 
 RcCompilerName         :=windres
-LinkOptions            :=  -O2
+LinkOptions            :=  
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)../SSVUtils/include/ $(IncludeSwitch)../SSVUtilsJson/include/ $(IncludeSwitch)../SSVStart/include/ $(IncludeSwitch)../SFML/include/ $(IncludeSwitch)../jsoncpp/include/ 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)SSVUtils-s $(LibrarySwitch)SSVUtilsJson-s $(LibrarySwitch)SSVStart-s $(LibrarySwitch)sfml-system $(LibrarySwitch)sfml-network $(LibrarySwitch)json_mingw_libmt 
-ArLibs                 :=  "SSVUtils-s" "SSVUtilsJson-s" "SSVStart-s" "sfml-system" "sfml-network" "json_mingw_libmt" 
-LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)../SSVUtils/lib/ $(LibraryPathSwitch)../SSVUtilsJson/lib/ $(LibraryPathSwitch)../SSVStart/lib/ $(LibraryPathSwitch)../SSVEntitySystem/lib/ $(LibraryPathSwitch)../SSVLuaWrapper/lib/ $(LibraryPathSwitch)../SSVSCollision/lib/ $(LibraryPathSwitch)../SSVMenuSystem/lib/ $(LibraryPathSwitch)../SFML/build2/lib $(LibraryPathSwitch)../jsoncpp/libs/mingw $(LibraryPathSwitch)../lua 
+Libs                   := $(LibrarySwitch)SSVUtils-s $(LibrarySwitch)SSVUtilsJson-s $(LibrarySwitch)SSVStart-s $(LibrarySwitch)sfml-system-2 $(LibrarySwitch)sfml-network-2 $(LibrarySwitch)json_mingw_libmt 
+ArLibs                 :=  "SSVUtils-s" "SSVUtilsJson-s" "SSVStart-s" "sfml-system-2.dll" "sfml-network-2.dll" "json_mingw_libmt" 
+LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)../SSVUtils/lib/ $(LibraryPathSwitch)../SSVUtilsJson/lib/ $(LibraryPathSwitch)../SSVStart/lib/ $(LibraryPathSwitch)../SSVEntitySystem/lib/ $(LibraryPathSwitch)../SSVLuaWrapper/lib/ $(LibraryPathSwitch)../SSVSCollision/lib/ $(LibraryPathSwitch)../SSVMenuSystem/lib/ $(LibraryPathSwitch)../SFML/lib/ $(LibraryPathSwitch)./_RELEASE/ $(LibraryPathSwitch)../jsoncpp/libs/mingw $(LibraryPathSwitch)../lua $(LibraryPathSwitch)D:/Vee/Software/GitHub/OHWorkspace/SFML/lib 
 
 ##
 ## Common variables
