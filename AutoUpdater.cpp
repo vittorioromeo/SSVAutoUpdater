@@ -2,6 +2,7 @@
 // License: Academic Free License ("AFL") v. 3.0
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
+#include <fstream>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -16,6 +17,7 @@ using namespace ssvs::Utils;
 using namespace ssvu;
 using namespace ssvuj;
 using namespace ssvu::FileSystem;
+using namespace ssvu::Encryption;
 using namespace ssvau::Utils;
 
 using Request = Http::Request;
@@ -36,23 +38,23 @@ namespace ssvau
 
 		// Wait until server config file has been downloaded, then set values
 		waitFor(configRootThread);
-		serverFolder = 			getValue<string>(updaterConfigRoot, "dataFolder");
-		serverExcludedFiles = 	getArray<string>(updaterConfigRoot, "excludedFiles");
-		serverExcludedFolders = getArray<string>(updaterConfigRoot, "excludedFolders");
-		serverOnlyNewFiles = 	getArray<string>(updaterConfigRoot, "onlyNewFiles");
+		serverFolder = 			as<string>(updaterConfigRoot, "dataFolder");
+		serverExcludedFiles = 	as<vector<string>>(updaterConfigRoot, "excludedFiles");
+		serverExcludedFolders = as<vector<string>>(updaterConfigRoot, "excludedFolders");
+		serverOnlyNewFiles = 	as<vector<string>>(updaterConfigRoot, "onlyNewFiles");
 
 		// Wait until server PHP script finished returning file data, then fill data vectors
 		waitFor(serverFilesRootThread);
 		for(auto& f : serverFilesRoot)
 		{
-			string childPath{getReplaced(getValue<string>(f, "path"), serverFolder, "")};
-			serverFiles.push_back({getValue<string>(f, "md5"), childPath});
+			string childPath{getReplaced(as<string>(f, "path"), serverFolder, "")};
+			serverFiles.push_back({as<string>(f, "md5"), childPath});
 		}
-		for(auto& f : getRecursiveAll(localFolder))
+		for(auto& f : getScan(localFolder))
 		{
 			string childPath{getReplaced(f, localFolder, "")};
 			if(isFolder(f)) localFiles.push_back({"FOLDER", childPath + "/"});
-			else localFiles.push_back({getMD5Hash(getFileContents(f)), childPath});
+			else localFiles.push_back({encrypt<Encryption::Type::MD5>(getFileContents(f)), childPath});
 		}
 	}
 	void AutoUpdater::runDisplayData()
@@ -84,13 +86,13 @@ namespace ssvau
 		if(!exists(localFolder))
 		{
 			log("Local folder does not exist, creating");
-			mkdir(localFolder.c_str());
+			createFolder(localFolder.c_str());
 		}
 
 		if(!exists(backupFolder))
 		{
 			log("Backup folder does not exist, creating");
-			mkdir(backupFolder.c_str());
+			createFolder(backupFolder.c_str());
 		}
 
 		// For each file data got from the server
@@ -162,7 +164,7 @@ namespace ssvau
 			log("Getting <" + mServerFileName + "> from server...", "Online");
 
 			Response response{getGetResponse(host, hostFolder, mServerFileName)};
-			
+
 			if(response.getStatus() == Response::Ok)
 			{
 				log("<" + mServerFileName + "> got successfully", "Online");
@@ -206,14 +208,20 @@ namespace ssvau
 			if(mDownloadData.existsLocally)
 			{
 				log("Backing up <" + mDownloadData.path + ">");
-				for(auto& folderName : getFolderNames(mDownloadData.path)) if(!exists(backupFolder + folderName)) mkdir((backupFolder + folderName).c_str());
+				for(auto& folderName : getFolderNames(mDownloadData.path)) if(!exists(backupFolder + folderName)) createFolder((backupFolder + folderName).c_str());
 				ofstream ofs{backupFolder + mDownloadData.path, ofstream::binary};
 				string backupContents{getFileContents(localFolder + mDownloadData.path)};
 				ofs << backupContents;
 				ofs.flush(); ofs.close();
 			}
 
-			for(auto& folderName : getFolderNames(mDownloadData.path)) if(!exists(localFolder + folderName)) mkdir((localFolder + folderName).c_str());
+			for(auto& folderName : getFolderNames(mDownloadData.path))
+				if(!exists(localFolder + folderName))
+				{
+					log("Creating folder <" + mDownloadData.path + ">");
+					createFolder((localFolder + folderName).c_str());
+				}
+
 
 			string serverContents{""};
 			ThreadWrapper& getFileContentsThread(startGetFileContents(serverContents, serverFolder + mDownloadData.path));

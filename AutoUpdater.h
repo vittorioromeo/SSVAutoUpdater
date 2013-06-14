@@ -8,7 +8,6 @@
 #include <string>
 #include <SFML/Network.hpp>
 #include <SSVStart/SSVStart.h>
-#include <jsoncpp/json.h>
 
 namespace ssvau
 {
@@ -29,7 +28,7 @@ namespace ssvau
 			void runDisplayData();
 			void runDownload();
 			void terminateAll();
-			
+
 			ssvs::Utils::ThreadWrapper& startGetJsonRoot(Json::Value& mTargetRoot, const std::string& mServerFileName);
 			ssvs::Utils::ThreadWrapper& startGetFileContents(std::string& mTargetString, const std::string& mServerFileName);
 			ssvs::Utils::ThreadWrapper& startGetFile(const DownloadData& mDownloadData);
