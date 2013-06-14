@@ -182,3 +182,4 @@ pip-log.txt
 *.scssc
 /_RELEASE/WEBVittorioRomeo2
 CMakeLists.txt.user.*
+/_RELEASE/SSVAutoUpdater
