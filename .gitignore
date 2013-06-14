@@ -1,12 +1,9 @@
-/lib
-
 #################
 ## Eclipse
 #################
-_RELEASE/Profiles/*.json
-_RELEASE/log.txt
 
 *.pydevproject
+.project
 .metadata
 bin/
 tmp/
@@ -46,6 +43,7 @@ local.properties
 
 # Build results
 [Dd]ebug/
+
 *_i.c
 *_p.c
 *.ilk
@@ -163,7 +161,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-SSVOpenHexagon.txt
 *.ogg
 *.wav
 *.o
@@ -175,3 +172,8 @@ SSVOpenHexagon.txt
 *.ttf
 *.i
 *.a
+.sass-cache
+./Release/Result/Resources/css/.sass-cache/
+*.scssc
+/_RELEASE/WEBVittorioRomeo2
+CMakeLists.txt.user.*
