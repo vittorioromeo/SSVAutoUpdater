@@ -12,13 +12,11 @@ namespace ssvau
 {
 	namespace Utils
 	{
-		string getMD5Hash(const string& mString) { return MD5{mString}.GetHash(); }
-		
 		vector<string> getFolderNames(const string& mPath)
 		{
-			vector<string> splitted{split(mPath, '/', true)}, result;
+			vector<string> splitted{getSplit<char, SplitMode::KeepSeparator>(mPath, '/')}, result;
 			string& lastSplitted(splitted[splitted.size() - 1]);
-			unsigned int sizeToSearch{splitted.size()};
+			auto sizeToSearch(splitted.size());
 			if(lastSplitted[lastSplitted.length() - 1] != '/') --sizeToSearch;
 
 			for(unsigned int i{0}; i < sizeToSearch; ++i)

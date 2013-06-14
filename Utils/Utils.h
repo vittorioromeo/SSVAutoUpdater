@@ -11,7 +11,6 @@ namespace ssvau
 {
 	namespace Utils
 	{
-		std::string getMD5Hash(const std::string& mString);
 		std::vector<std::string> getFolderNames(const std::string& mPath);
 	}
 }
