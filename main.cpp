@@ -15,11 +15,11 @@ int main()
 {
 	// Get config values from local JSON file
 	const Json::Value localConfig	{getRootFromFile("updaterConfig.json")};
-	const string localFolder		{getValue<string>(localConfig, "localFolder")};
-	const string host				{getValue<string>(localConfig, "host")};
-	const string hostFolder			{getValue<string>(localConfig, "hostFolder")};
-	const string hostConfig			{getValue<string>(localConfig, "hostConfig")};
-	const string hostScript			{getValue<string>(localConfig, "hostScript")};
+	const string localFolder		{as<string>(localConfig, "localFolder")};
+	const string host				{as<string>(localConfig, "host")};
+	const string hostFolder			{as<string>(localConfig, "hostFolder")};
+	const string hostConfig			{as<string>(localConfig, "hostConfig")};
+	const string hostScript			{as<string>(localConfig, "hostScript")};
 
 	// Create and run the autoupdater
 	AutoUpdater autoUpdater{localFolder, host, hostFolder, hostConfig, hostScript};
@@ -27,4 +27,6 @@ int main()
 
 	// Save log to file
 	saveLogToFile("updaterLog.txt");
+
+	return 0;
 }
