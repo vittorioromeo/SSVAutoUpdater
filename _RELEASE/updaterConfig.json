@@ -1,7 +1,7 @@
 {
 	"localFolder": "./_OPENHEXAGON/",
 	"host": "http://vittorioromeo.info",
-	"hostFolder": "Misc/Linked/OHUpdater/",
+	"hostFolder": "Misc/Linked/OHUpdaterNew/",
 	"hostConfig": "updaterConfig.json",
 	"hostScript": "updaterGetFiles.php"
 }

@@ -3,6 +3,7 @@
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
 #include <string>
+#include <SSVUtils/SSVUtils.h>
 #include <SSVUtilsJson/SSVUtilsJson.h>
 #include "AutoUpdater.h"
 
