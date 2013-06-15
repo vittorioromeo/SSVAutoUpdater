@@ -1,7 +1,18 @@
 {
-	"localFolder": "./_OPENHEXAGON/",
 	"host": "http://vittorioromeo.info",
-	"hostFolder": "Misc/Linked/OHUpdaterNew/",
-	"hostConfig": "updaterConfig.json",
-	"hostScript": "updaterGetFiles.php"
+	"hostMainFolder": "Misc/Linked/OHUpdaterNew/",
+	"hostMainConfig": "updaterConfig.json",
+	"hostMainScript": "updaterGetFiles.php",
+
+	"targets":
+	[
+		{
+			"remoteFolder": "_CROSSPLATFORM/",
+			"localFolder": "_OPENHEXAGON/"
+		},
+		{
+			"remoteFolder": "_WINDOWS/",
+			"localFolder": "_OPENHEXAGON/"
+		}
+	]
 }

@@ -7,6 +7,3 @@
 [submodule "extlibs/SSVUtilsJson"]
 	path = extlibs/SSVUtilsJson
 	url = https://github.com/SuperV1234/SSVUtilsJson.git
-[submodule "extlibs/SSVStart"]
-	path = extlibs/SSVStart
-	url = https://github.com/SuperV1234/SSVStart.git

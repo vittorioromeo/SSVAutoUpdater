@@ -29,7 +29,7 @@ find_package(SSVUtils REQUIRED)
 find_package(SSVUtilsJson REQUIRED)
 find_package(SSVStart REQUIRED)
 
-file(GLOB SRC_LIST "./*.cpp" "./*.h" "./Utils/*.cpp" "./Utils/*.h")
+file(GLOB SRC_LIST "./*.cpp" "./*.h")
 
 include_directories("./")
 include_directories("./Utils/")
