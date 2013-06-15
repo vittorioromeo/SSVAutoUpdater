@@ -2,6 +2,7 @@ callgrind.*
 CMakeLists.txt.user.*
 
 ./_RELEASE/*
+./_RELEASE/_OPENHEXAGON/
 
 #################
 ## Eclipse
