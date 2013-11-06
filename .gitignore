@@ -185,3 +185,4 @@ pip-log.txt
 CMakeLists.txt.user.*
 /_RELEASE/SSVAutoUpdater
 /_RELEASE/*asanlogs
+/_RELEASE/updaterLog.txt
