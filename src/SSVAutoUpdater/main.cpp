@@ -6,8 +6,8 @@
 #include <vector>
 #include <fstream>
 #include <SFML/Network.hpp>
-#include <SSVUtils/SSVUtils.h>
-#include <SSVUtilsJson/SSVUtilsJson.h>
+#include <SSVUtils/SSVUtils.hpp>
+#include <SSVUtilsJson/SSVUtilsJson.hpp>
 
 using namespace std;
 using namespace sf;
