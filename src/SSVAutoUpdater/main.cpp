@@ -125,7 +125,7 @@ void loadRemoteScript()
 		for(const auto& t : targets) localPath = Path(ssvu::getReplaced(localPath.getStr(), t.remoteFolder.getStr(), t.localFolder.getStr()));
 		bool localExists{ssvu::FileSystem::exists(localPath)};
 
-		if(localPath.isFolder()) continue;
+		if(localPath.existsAsFolder()) continue;
 		if(localExists)
 		{
 			localMD5 = ssvu::Encryption::encrypt<ssvu::Encryption::Type::MD5>(ssvu::FileSystem::getFileContents(localPath));
