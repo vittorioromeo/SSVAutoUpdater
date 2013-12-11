@@ -71,7 +71,7 @@ void loadLocalConfig()
 {
 	ssvu::lo("loadLocalConfig") << "loading local config...\n" << std::endl;
 
-	const Obj localConfig{ssvuj::readFromFile("updaterConfig.json")};
+	const Obj localConfig{ssvuj::getFromFile("updaterConfig.json")};
 	host			= ssvuj::getAs<std::string>(localConfig, "host"); ssvu::lo("loadLocalConfig") << "host: <" + host + ">" << std::endl;
 	hostMainFolder	= ssvuj::getAs<std::string>(localConfig, "hostMainFolder"); ssvu::lo("loadLocalConfig") << "hostMainFolder: <" + hostMainFolder + ">" << std::endl;
 	hostMainConfig	= ssvuj::getAs<std::string>(localConfig, "hostMainConfig"); ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">" << std::endl;
@@ -89,7 +89,7 @@ void loadRemoteConfig()
 {
 	ssvu::lo("loadRemoteConfig") << "loading remote config...\n" << std::endl;
 
-	const Obj remoteConfig{ssvuj::readFromString(downloadFileContents(hostMainFolder + hostMainConfig))};
+	const Obj remoteConfig{ssvuj::getFromString(downloadFileContents(hostMainFolder + hostMainConfig))};
 	remoteDataFolder = ssvuj::getAs<std::string>(remoteConfig, "dataFolder"); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << std::endl;
 	for(const auto& f : ssvuj::getAs<std::vector<std::string>>(remoteConfig, "excludedFiles"))
 	{
@@ -112,7 +112,7 @@ void loadRemoteScript()
 {
 	ssvu::lo("loadRemoteScript") << "loading remote script..." << std::endl;
 
-	const Obj remoteScriptResult{ssvuj::readFromString(downloadFileContents(hostMainFolder + hostMainScript))};
+	const Obj remoteScriptResult{ssvuj::getFromString(downloadFileContents(hostMainFolder + hostMainScript))};
 
 	for(auto& f : remoteScriptResult)
 	{
