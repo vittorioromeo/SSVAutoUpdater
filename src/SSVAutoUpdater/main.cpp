@@ -77,7 +77,7 @@ void loadLocalConfig()
 	hostMainConfig	= ssvuj::getExtr<std::string>(localConfig, "hostMainConfig"); ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">" << std::endl;
 	hostMainScript	= ssvuj::getExtr<std::string>(localConfig, "hostMainScript"); ssvu::lo("loadLocalConfig") << "hostMainScript: <" + hostMainScript + ">" << std::endl;
 
-	for(const auto& t : localConfig["targets"])
+	for(const auto& t : ssvuj::getObj(localConfig, "targets"))
 	{
 		auto remoteFolder(ssvuj::getExtr<string>(t, "remoteFolder")), localFolder(ssvuj::getExtr<string>(t, "localFolder"));
 		targets.emplace_back(remoteFolder, localFolder);
