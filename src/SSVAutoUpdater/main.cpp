@@ -93,17 +93,17 @@ void loadRemoteConfig()
 	remoteDataFolder = ssvuj::getExtr<std::string>(remoteConfig, "dataFolder"); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << std::endl;
 	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "excludedFiles"))
 	{
-		remoteExcludedFiles.push_back(f);
+		remoteExcludedFiles.emplace_back(f);
 		ssvu::lo("loadRemoteConfig") << "remoteExcludedFile: <" + f + ">" << std::endl;
 	}
 	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "excludedFolders"))
 	{
-		remoteExcludedFolders.push_back(f);
+		remoteExcludedFolders.emplace_back(f);
 		ssvu::lo("loadRemoteConfig") << "remoteExcludedFolder: <" + f + ">" << std::endl;
 	}
 	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "onlyNewFiles"))
 	{
-		remoteOnlyNewFiles.push_back(f);
+		remoteOnlyNewFiles.emplace_back(f);
 		ssvu::lo("loadRemoteConfig") << "remoteOnlyNewFile: <" + f + ">" << std::endl;
 	}
 }
