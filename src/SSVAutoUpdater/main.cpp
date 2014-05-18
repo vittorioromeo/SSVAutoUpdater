@@ -2,11 +2,9 @@
 // License: Academic Free License ("AFL") v. 3.0
 // AFL License page: http://opensource.org/licenses/AFL-3.0
 
-#include <string>
-#include <vector>
-#include <fstream>
 #include <SFML/Network.hpp>
-#include <SSVUtils/SSVUtils.hpp>
+#include <SSVUtils/Core/Core.hpp>
+#include <SSVUtils/Encryption/Encryption.hpp>
 #include <SSVUtilsJson/SSVUtilsJson.hpp>
 
 using namespace std;
