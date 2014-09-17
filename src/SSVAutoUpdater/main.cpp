@@ -55,7 +55,7 @@ void download(const DownloadData& mDownloadData)
 		if(!ssvu::FileSystem::exists(backupFolder)) ssvu::FileSystem::createFolder(backupFolder);
 		for(const auto& f : getFolderNames(mDownloadData.localPath)) if(!ssvu::FileSystem::exists(backupFolder + f)) ssvu::FileSystem::createFolder(backupFolder + f);
 		std::ofstream ofs{backupFolder + mDownloadData.localPath, std::ofstream::binary};
-		ofs << ssvu::FileSystem::getFileContents(mDownloadData.localPath); ofs.flush(); ofs.close();
+		ofs << mDownloadData.localPath.getContentsAsString(); ofs.flush(); ofs.close();
 	}
 
 	for(auto& f : getFolderNames(mDownloadData.localPath)) if(!ssvu::FileSystem::exists(f)) { ssvu::lo("download") << "Creating folder <" + f + ">"; ssvu::FileSystem::createFolder(f); }
@@ -123,10 +123,10 @@ void loadRemoteScript()
 		for(const auto& t : targets) localPath = Path(ssvu::getReplaced(localPath.getStr(), t.remoteFolder.getStr(), t.localFolder.getStr()));
 		bool localExists{ssvu::FileSystem::exists(localPath)};
 
-		if(localPath.existsAsFolder()) continue;
+		if(localPath.exists<ssvufs::Type::Folder>()) continue;
 		if(localExists)
 		{
-			localMD5 = ssvu::Encryption::encrypt<ssvu::Encryption::Type::MD5>(ssvu::FileSystem::getFileContents(localPath));
+			localMD5 = ssvu::Encryption::encrypt<ssvu::Encryption::Type::MD5>(localPath.getContentsAsString());
 			ssvu::lo("loadRemoteScript") << "localFiles: <" + localPath + "> <" + localMD5 + ">" << std::endl;
 		}
 		else ssvu::lo("loadRemoteScript") << "localFiles: <" + localPath + "> <does not exist>" << std::endl;
