@@ -52,13 +52,13 @@ void download(const DownloadData& mDownloadData)
 	if(mDownloadData.localExists)
 	{
 		ssvu::lo("download") << "Backing up <" + mDownloadData.localPath + "> to <" + backupFolder + mDownloadData.localPath + ">" << std::endl;
-		if(!ssvu::FileSystem::exists(backupFolder)) ssvu::FileSystem::createFolder(backupFolder);
-		for(const auto& f : getFolderNames(mDownloadData.localPath)) if(!ssvu::FileSystem::exists(backupFolder + f)) ssvu::FileSystem::createFolder(backupFolder + f);
+		if(!ssvufs::Path{backupFolder}.exists<ssvufs::Type::Folder>()) ssvu::FileSystem::createFolder(backupFolder);
+		for(const auto& f : getFolderNames(mDownloadData.localPath)) if(!ssvufs::Path{backupFolder + f}.exists<ssvufs::Type::Folder>()) ssvu::FileSystem::createFolder(backupFolder + f);
 		std::ofstream ofs{backupFolder + mDownloadData.localPath, std::ofstream::binary};
 		ofs << mDownloadData.localPath.getContentsAsString(); ofs.flush(); ofs.close();
 	}
 
-	for(auto& f : getFolderNames(mDownloadData.localPath)) if(!ssvu::FileSystem::exists(f)) { ssvu::lo("download") << "Creating folder <" + f + ">"; ssvu::FileSystem::createFolder(f); }
+	for(auto& f : getFolderNames(mDownloadData.localPath)) if(!f.exists<ssvufs::Type::Folder>()) { ssvu::lo("download") << "Creating folder <" + f + ">"; ssvu::FileSystem::createFolder(f); }
 
 	std::ofstream ofs{mDownloadData.localPath, std::ofstream::binary};
 	ofs << downloadFileContents(hostMainFolder + mDownloadData.remotePath); ofs.flush(); ofs.close();
@@ -121,7 +121,7 @@ void loadRemoteScript()
 		std::string localMD5;
 
 		for(const auto& t : targets) localPath = Path(ssvu::getReplaced(localPath.getStr(), t.remoteFolder.getStr(), t.localFolder.getStr()));
-		bool localExists{ssvu::FileSystem::exists(localPath)};
+		bool localExists{localPath.exists<ssvufs::Type::All>()};
 
 		if(localPath.exists<ssvufs::Type::Folder>()) continue;
 		if(localExists)
