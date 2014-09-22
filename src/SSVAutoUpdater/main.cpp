@@ -34,14 +34,14 @@ std::vector<ssvu::FileSystem::Path> getFolderNames(const ssvu::FileSystem::Path&
 
 std::string downloadFileContents(const ssvu::FileSystem::Path& mRemotePath)
 {
-	ssvu::lo("downloadFileContents") << "Getting <" + mRemotePath.getStr() + "> from server..." << std::endl;
+	ssvu::lo("downloadFileContents") << "Getting <" + mRemotePath.getStr() + "> from server...\n";
 	sf::Http::Response response{sf::Http(host).sendRequest(mRemotePath.getStr())};
 	if(response.getStatus() == sf::Http::Response::Ok)
 	{
-		ssvu::lo("downloadFileContents") << "<" + mRemotePath.getStr() + "> got successfully" << std::endl;
+		ssvu::lo("downloadFileContents") << "<" + mRemotePath.getStr() + "> got successfully\n";
 		return response.getBody();
 	}
-	ssvu::lo("downloadFileContents") << "Get <" + mRemotePath.getStr() + "> error" << std::endl;
+	ssvu::lo("downloadFileContents") << "Get <" + mRemotePath.getStr() + "> error\n";
 	return "";
 }
 
@@ -51,7 +51,7 @@ void download(const DownloadData& mDownloadData)
 
 	if(mDownloadData.localExists)
 	{
-		ssvu::lo("download") << "Backing up <" + mDownloadData.localPath + "> to <" + backupFolder + mDownloadData.localPath + ">" << std::endl;
+		ssvu::lo("download") << "Backing up <" + mDownloadData.localPath + "> to <" + backupFolder + mDownloadData.localPath + ">\n";
 		if(!ssvufs::Path{backupFolder}.exists<ssvufs::Type::Folder>()) ssvu::FileSystem::createFolder(backupFolder);
 		for(const auto& f : getFolderNames(mDownloadData.localPath)) if(!ssvufs::Path{backupFolder + f}.exists<ssvufs::Type::Folder>()) ssvu::FileSystem::createFolder(backupFolder + f);
 		std::ofstream ofs{backupFolder + mDownloadData.localPath, std::ofstream::binary};
@@ -62,60 +62,60 @@ void download(const DownloadData& mDownloadData)
 
 	std::ofstream ofs{mDownloadData.localPath, std::ofstream::binary};
 	ofs << downloadFileContents(hostMainFolder + mDownloadData.remotePath); ofs.flush(); ofs.close();
-	ssvu::lo("download") << "Finished processing <" + mDownloadData.localPath + ">"<< std::endl;
+	ssvu::lo("download") << "Finished processing <" + mDownloadData.localPath + ">\n";
 }
 
 void loadLocalConfig()
 {
-	ssvu::lo("loadLocalConfig") << "loading local config...\n" << std::endl;
+	ssvu::lo("loadLocalConfig") << "loading local config...\n\n";
 
 	const Obj localConfig{ssvuj::getFromFile("updaterConfig.json")};
-	host			= ssvuj::getExtr<std::string>(localConfig, "host"); ssvu::lo("loadLocalConfig") << "host: <" + host + ">" << std::endl;
-	hostMainFolder	= ssvuj::getExtr<std::string>(localConfig, "hostMainFolder"); ssvu::lo("loadLocalConfig") << "hostMainFolder: <" + hostMainFolder + ">" << std::endl;
-	hostMainConfig	= ssvuj::getExtr<std::string>(localConfig, "hostMainConfig"); ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">" << std::endl;
-	hostMainScript	= ssvuj::getExtr<std::string>(localConfig, "hostMainScript"); ssvu::lo("loadLocalConfig") << "hostMainScript: <" + hostMainScript + ">" << std::endl;
+	host			= ssvuj::getExtr<std::string>(localConfig, "host"); ssvu::lo("loadLocalConfig") << "host: <" + host + ">\n";
+	hostMainFolder	= ssvuj::getExtr<std::string>(localConfig, "hostMainFolder"); ssvu::lo("loadLocalConfig") << "hostMainFolder: <" + hostMainFolder + ">\n";
+	hostMainConfig	= ssvuj::getExtr<std::string>(localConfig, "hostMainConfig"); ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">\n";
+	hostMainScript	= ssvuj::getExtr<std::string>(localConfig, "hostMainScript"); ssvu::lo("loadLocalConfig") << "hostMainScript: <" + hostMainScript + ">\n";
 
 	for(const auto& t : ssvuj::getObj(localConfig, "targets"))
 	{
 		auto remoteFolder(ssvuj::getExtr<string>(t, "remoteFolder")), localFolder(ssvuj::getExtr<string>(t, "localFolder"));
 		targets.emplace_back(remoteFolder, localFolder);
-		ssvu::lo("loadLocalConfig") << "target: <" + remoteFolder + "> -> <" + localFolder + ">" << std::endl;
+		ssvu::lo("loadLocalConfig") << "target: <" + remoteFolder + "> -> <" + localFolder + ">\n";
 	}
 }
 
 void loadRemoteConfig()
 {
-	ssvu::lo("loadRemoteConfig") << "loading remote config...\n" << std::endl;
+	ssvu::lo("loadRemoteConfig") << "loading remote config...\n\n";
 
 	const Obj remoteConfig{ssvuj::getFromString(downloadFileContents(hostMainFolder + hostMainConfig))};
-	remoteDataFolder = ssvuj::getExtr<std::string>(remoteConfig, "dataFolder"); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << std::endl;
+	remoteDataFolder = ssvuj::getExtr<std::string>(remoteConfig, "dataFolder"); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << "\n";
 	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "excludedFiles"))
 	{
 		remoteExcludedFiles.emplace_back(f);
-		ssvu::lo("loadRemoteConfig") << "remoteExcludedFile: <" + f + ">" << std::endl;
+		ssvu::lo("loadRemoteConfig") << "remoteExcludedFile: <" + f + ">\n";
 	}
 	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "excludedFolders"))
 	{
 		remoteExcludedFolders.emplace_back(f);
-		ssvu::lo("loadRemoteConfig") << "remoteExcludedFolder: <" + f + ">" << std::endl;
+		ssvu::lo("loadRemoteConfig") << "remoteExcludedFolder: <" + f + ">\n";
 	}
 	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "onlyNewFiles"))
 	{
 		remoteOnlyNewFiles.emplace_back(f);
-		ssvu::lo("loadRemoteConfig") << "remoteOnlyNewFile: <" + f + ">" << std::endl;
+		ssvu::lo("loadRemoteConfig") << "remoteOnlyNewFile: <" + f + ">\n";
 	}
 }
 
 void loadRemoteScript()
 {
-	ssvu::lo("loadRemoteScript") << "loading remote script..." << std::endl;
+	ssvu::lo("loadRemoteScript") << "loading remote script...\n";
 
 	const Obj remoteScriptResult{ssvuj::getFromString(downloadFileContents(hostMainFolder + hostMainScript))};
 
 	for(auto& f : remoteScriptResult)
 	{
 		auto remotePath(ssvuj::getExtr<std::string>(f, "path")), remoteMD5(ssvuj::getExtr<std::string>(f, "md5"));
-		ssvu::lo("loadRemoteScript") << "remoteFiles: <" + remotePath + "> <" + remoteMD5 + ">" << std::endl;
+		ssvu::lo("loadRemoteScript") << "remoteFiles: <" + remotePath + "> <" + remoteMD5 + ">\n";
 
 		ssvu::FileSystem::Path localPath{ssvu::getReplaced(remotePath, remoteDataFolder, "")};
 		std::string localMD5;
@@ -127,9 +127,9 @@ void loadRemoteScript()
 		if(localExists)
 		{
 			localMD5 = ssvu::Encryption::encrypt<ssvu::Encryption::Type::MD5>(localPath.getContentsAsString());
-			ssvu::lo("loadRemoteScript") << "localFiles: <" + localPath + "> <" + localMD5 + ">" << std::endl;
+			ssvu::lo("loadRemoteScript") << "localFiles: <" + localPath + "> <" + localMD5 + ">\n";
 		}
-		else ssvu::lo("loadRemoteScript") << "localFiles: <" + localPath + "> <does not exist>" << std::endl;
+		else ssvu::lo("loadRemoteScript") << "localFiles: <" + localPath + "> <does not exist>\n";
 
 		downloadDatas.push_back({localExists, remotePath, remoteMD5, localPath, localMD5});
 	}
@@ -137,14 +137,14 @@ void loadRemoteScript()
 
 void processDownloads()
 {
-	ssvu::lo("processDownloads") << "processing downloads..." << std::endl;
+	ssvu::lo("processDownloads") << "processing downloads...\n";
 
 	for(const auto& d : downloadDatas)
 	{
-		if(d.localExists && d.localMD5 == d.remoteMD5) ssvu::lo("processDownloads") << "no need to update: <" + d.localPath + ">" << std::endl;
-		else if(d.localExists && ssvu::contains(remoteOnlyNewFiles, d.remotePath)) ssvu::lo("processDownloads") << "<" + d.localPath + "> doesn't match, but won't be downloaded because it exists" << std::endl;
+		if(d.localExists && d.localMD5 == d.remoteMD5) ssvu::lo("processDownloads") << "no need to update: <" + d.localPath + ">\n";
+		else if(d.localExists && ssvu::contains(remoteOnlyNewFiles, d.remotePath)) ssvu::lo("processDownloads") << "<" + d.localPath + "> doesn't match, but won't be downloaded because it exists\n";
 		else download(d);
 	}
 }
 
-int main() { loadLocalConfig(); loadRemoteConfig(); loadRemoteScript(); processDownloads(); saveLogToFile("updaterLog.txt"); return 0; }
+int main() { loadLocalConfig(); loadRemoteConfig(); loadRemoteScript(); processDownloads(); saveLogToFile("updaterLog.txt"); ssvu::lo().flush(); return 0; }
