@@ -5,14 +5,14 @@
 #include <SFML/Network.hpp>
 #include <SSVUtils/Core/Core.hpp>
 #include <SSVUtils/Encryption/Encryption.hpp>
-#include <SSVUtilsJson/SSVUtilsJson.hpp>
+#include <SSVUtils/Json/Json.hpp>
 
 using namespace std;
 using namespace sf;
 using namespace ssvu;
 using namespace ssvu::Encryption;
 using namespace ssvu::FileSystem;
-using namespace ssvuj;
+using namespace ssvj;
 
 struct Target
 {
@@ -69,15 +69,15 @@ void loadLocalConfig()
 {
 	ssvu::lo("loadLocalConfig") << "loading local config...\n\n";
 
-	const Obj localConfig{ssvuj::getFromFile("updaterConfig.json")};
-	host			= ssvuj::getExtr<std::string>(localConfig, "host"); ssvu::lo("loadLocalConfig") << "host: <" + host + ">\n";
-	hostMainFolder	= ssvuj::getExtr<std::string>(localConfig, "hostMainFolder"); ssvu::lo("loadLocalConfig") << "hostMainFolder: <" + hostMainFolder + ">\n";
-	hostMainConfig	= ssvuj::getExtr<std::string>(localConfig, "hostMainConfig"); ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">\n";
-	hostMainScript	= ssvuj::getExtr<std::string>(localConfig, "hostMainScript"); ssvu::lo("loadLocalConfig") << "hostMainScript: <" + hostMainScript + ">\n";
+	const auto localConfig(Val::fromFile("updaterConfig.json"));
+	host			= localConfig["host"].as<Str>();			ssvu::lo("loadLocalConfig") << "host: <" + host + ">\n";
+	hostMainFolder	= localConfig["hostMainFolder"].as<Str>();	ssvu::lo("loadLocalConfig") << "hostMainFolder: <" + hostMainFolder + ">\n";
+	hostMainConfig	= localConfig["hostMainConfig"].as<Str>();	ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">\n";
+	hostMainScript	= localConfig["hostMainScript"].as<Str>();	ssvu::lo("loadLocalConfig") << "hostMainScript: <" + hostMainScript + ">\n";
 
-	for(const auto& t : ssvuj::getObj(localConfig, "targets"))
+	for(const auto& t : localConfig["targets"].forArr())
 	{
-		auto remoteFolder(ssvuj::getExtr<string>(t, "remoteFolder")), localFolder(ssvuj::getExtr<string>(t, "localFolder"));
+		auto remoteFolder(t["remoteFolder"].as<Str>()), localFolder(t["localFolder"].as<Str>());
 		targets.emplace_back(remoteFolder, localFolder);
 		ssvu::lo("loadLocalConfig") << "target: <" + remoteFolder + "> -> <" + localFolder + ">\n";
 	}
@@ -87,19 +87,19 @@ void loadRemoteConfig()
 {
 	ssvu::lo("loadRemoteConfig") << "loading remote config...\n\n";
 
-	const Obj remoteConfig{ssvuj::getFromString(downloadFileContents(hostMainFolder + hostMainConfig))};
-	remoteDataFolder = ssvuj::getExtr<std::string>(remoteConfig, "dataFolder"); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << "\n";
-	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "excludedFiles"))
+	const auto remoteConfig(Val::fromStr(downloadFileContents(hostMainFolder + hostMainConfig)));
+	remoteDataFolder = remoteConfig["dataFolder"].as<Str>(); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << "\n";
+	for(const auto& f : remoteConfig["excludedFiles"].forArrAs<Str>())
 	{
 		remoteExcludedFiles.emplace_back(f);
 		ssvu::lo("loadRemoteConfig") << "remoteExcludedFile: <" + f + ">\n";
 	}
-	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "excludedFolders"))
+	for(const auto& f : remoteConfig["excludedFolders"].forArrAs<Str>())
 	{
 		remoteExcludedFolders.emplace_back(f);
 		ssvu::lo("loadRemoteConfig") << "remoteExcludedFolder: <" + f + ">\n";
 	}
-	for(const auto& f : ssvuj::getExtr<std::vector<std::string>>(remoteConfig, "onlyNewFiles"))
+	for(const auto& f : remoteConfig["onlyNewFiles"].forArrAs<Str>())
 	{
 		remoteOnlyNewFiles.emplace_back(f);
 		ssvu::lo("loadRemoteConfig") << "remoteOnlyNewFile: <" + f + ">\n";
@@ -110,11 +110,11 @@ void loadRemoteScript()
 {
 	ssvu::lo("loadRemoteScript") << "loading remote script...\n";
 
-	const Obj remoteScriptResult{ssvuj::getFromString(downloadFileContents(hostMainFolder + hostMainScript))};
+	const auto remoteScriptResult(Val::fromStr(downloadFileContents(hostMainFolder + hostMainScript)));
 
-	for(auto& f : remoteScriptResult)
+	for(auto& f : remoteScriptResult.forArr())
 	{
-		auto remotePath(ssvuj::getExtr<std::string>(f, "path")), remoteMD5(ssvuj::getExtr<std::string>(f, "md5"));
+		auto remotePath(f["path"].as<Str>()), remoteMD5(f["md5"].as<Str>());
 		ssvu::lo("loadRemoteScript") << "remoteFiles: <" + remotePath + "> <" + remoteMD5 + ">\n";
 
 		ssvu::FileSystem::Path localPath{ssvu::getReplaced(remotePath, remoteDataFolder, "")};
