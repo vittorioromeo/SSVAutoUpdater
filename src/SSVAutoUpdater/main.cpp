@@ -69,7 +69,7 @@ void loadLocalConfig()
 {
 	ssvu::lo("loadLocalConfig") << "loading local config...\n\n";
 
-	const auto localConfig(Val::fromFile("updaterConfig.json"));
+	const auto localConfig(fromFile("updaterConfig.json"));
 	host			= localConfig["host"].as<Str>();			ssvu::lo("loadLocalConfig") << "host: <" + host + ">\n";
 	hostMainFolder	= localConfig["hostMainFolder"].as<Str>();	ssvu::lo("loadLocalConfig") << "hostMainFolder: <" + hostMainFolder + ">\n";
 	hostMainConfig	= localConfig["hostMainConfig"].as<Str>();	ssvu::lo("loadLocalConfig") << "hostMainConfig: <" + hostMainConfig + ">\n";
@@ -87,7 +87,7 @@ void loadRemoteConfig()
 {
 	ssvu::lo("loadRemoteConfig") << "loading remote config...\n\n";
 
-	const auto remoteConfig(Val::fromStr(downloadFileContents(hostMainFolder + hostMainConfig)));
+	const auto remoteConfig(fromStr(downloadFileContents(hostMainFolder + hostMainConfig)));
 	remoteDataFolder = remoteConfig["dataFolder"].as<Str>(); ssvu::lo("loadRemoteConfig") << "remoteDataFolder" + remoteDataFolder << "\n";
 	for(const auto& f : remoteConfig["excludedFiles"].forArrAs<Str>())
 	{
@@ -110,7 +110,7 @@ void loadRemoteScript()
 {
 	ssvu::lo("loadRemoteScript") << "loading remote script...\n";
 
-	const auto remoteScriptResult(Val::fromStr(downloadFileContents(hostMainFolder + hostMainScript)));
+	const auto remoteScriptResult(fromStr(downloadFileContents(hostMainFolder + hostMainScript)));
 
 	for(auto& f : remoteScriptResult.forArr())
 	{
